@@ -185,9 +185,111 @@ extern class Raylib {
 
 	@:native("UpdateCamera")
 	public static function updateCamera(camera:Star<Camera>, mode:Int):Void;
-
+	
 	@:native("UpdateCameraPro")
 	public static function updateCameraPro(camera:Star<Camera>, movement:Vector3, rotation:Vector3, zoom:Float):Void;
+
+	@:native("SetShapesTexture")
+	public static function setShapesTexture(texture:Texture2D, source:Rectangle):Void;
+
+	@:native("DrawPixel")
+	public static function drawPixel(posX:Int, posY:Int, color:Color):Void;
+
+	@:native("DrawPixelV")
+	public static function drawPixelV(positon:Vector2, color:Color):Void;
+
+	@:native("DrawLine")
+	public static function drawLine(startPosX:Int, startPosY:Int, endPosX:Int, endPosY:Int, color:Color):Void;
+
+	@:native("DrawLineV")
+	public static function drawLineV(startPos:Vector2, endPos:Vector2, color:Color):Void;
+
+	@:native("DrawLineEx")
+	public static function drawLineEx(startPos:Vector2, endPos:Vector2, thick:Float, color:Color):Void;
+
+	@:native("DrawLineStrip")
+	public static function drawLineStrip(points:Star<Vector2>, pointCount:Int, color:Color):Void;
+
+	@:native("DrawLineBezier")
+	public static function drawLineBezier(startPos:Vector2, endPos:Vector2, thick:Float, color:Color):Void;
+
+	@:native("DrawCircle")
+	public static function drawCircle(centerX:Int, centerY:Int, radius:Float, color:Color):Void;
+	
+	@:native("DrawCircleSector")
+	public static function drawCircleSector(center:Vector2, radius:Float, startAngle:Float, endAngle:Float, segments:Int, color:Color):Void;
+
+	@:native("DrawCircleSectorLines")
+	public static function drawCircleSectorLines(centerX:Int, centerY:Int, radius:Float, color:Color):Void;
+
+	@:native("DrawCircleSectorLinesV")
+	public static function drawCircleSectorLinesV(center:Vector2, radius:Float, color:Color):Void;
+
+	@:native("DrawEllipse")
+	public static function drawEllipse(centerX:Int, centerY:Int, radiusH:Float, radiusV:Float, color:Color):Void;
+
+	@:native("DrawEllipseLines")
+	public static function drawEllipseLines(centerX:Int, centerY:Int, radiusH:Float, radiusV:Float, color:Color):Void;
+
+	@:native("DrawRing")
+	public static function drawRing(center:Vector2, innerRadius:Float, outerRadius:Float, startAngle:Float, endAngle:Float, segments:Int, color:Color):Void;
+
+	@:native("DrawRingLines")
+	public static function drawRingLines(center:Vector2, innerRadius:Float, outerRadius:Float, startAngle:Float, endAngle:Float, segments:Int, color:Color):Void;
+
+	@:native("DrawRectangle")
+	public static function drawRectangle(posX:Int, posY:Int, width:Int, height:Int, color:Color):Void;
+
+	@:native("DrawRectangleV")
+	public static function drawRectangleV(pos:Vector2, size:Vector2, color:Color):Void;
+
+	@:native("DrawRectangleRec")
+	public static function drawRectangleRec(rec:Rectangle, color:Color):Void;
+
+	@:native("DrawRectanglePro")
+	public static function drawRectanglePro(rec:Rectangle, origin:Vector2, rotation:Float, color:Color):Void;
+
+	@:native("DrawRectangleGradientV")
+	public static function drawRectangleGradientV(posX:Int, posY:Int, width:Int, height:Int, color1:Color, color2:Color):Void;
+
+	@:native("DrawRectangleGradientH")
+	public static function drawRectangleGradientH(posX:Int, posY:Int, width:Int, height:Int, color1:Color, color2:Color):Void;
+
+	@:native("DrawRectangleGradientEx")
+	public static function drawRectangleGradientEx(rec:Rectangle, color1:Color, color2:Color, color3:Color, color4:Color):Void;
+
+	@:native("DrawRectangleLines")
+	public static function drawRectangleLines(posX:Int, posY:Int, width:Int, height:Int, color:Color):Void;
+
+	@:native("DrawRectangleLinesEx")
+	public static function drawRectangleLinesEx(rec:Rectangle, lineThick:Int, color:Color):Void;
+
+	@:native("DrawRectangleRounded")
+	public static function drawRectangleRounded(rec:Rectangle, roundness:Float, segments:Int,color:Color):Void;
+
+	@:native("DrawRectangleRoundedLines")
+	public static function drawRectangleRoundedLines(rec:Rectangle, roundness:Float, segments:Int, lineThick:Float, color:Color):Void;
+
+	@:native("DrawTriangle")
+	public static function drawTriangle(v1:Vector2, v2:Vector2, v3:Vector2, color:Color):Void;
+
+	@:native("DrawTriangleLines")
+	public static function drawTriangleLines(v1:Vector2, v2:Vector2, v3:Vector2, color:Color):Void;
+
+	@:native("DrawTriangleFan")
+	public static function drawTriangleFan(points:Star<Vector2>, pointCount:Int, color:Color):Void;
+
+	@:native("DrawTriangleStrip")
+	public static function drawTriangleStrip(points:Star<Vector2>, pointCount:Int, color:Color):Void;
+
+	@:native("DrawPoly")
+	public static function drawPoly(center:Vector2, sides:Int, radius:Float, rotation:Float, color:Color):Void;
+
+	@:native("DrawPolyLines")
+	public static function drawPolyLines(center:Vector2, sides:Int, radius:Float, rotation:Float, color:Color):Void;
+
+	@:native("DrawPolyLinesEx")
+	public static function drawPolyLinesEx(center:Vector2, sides:Int, radius:Float, rotation:Float, lineThick:Float, color:Color):Void;
 
     @:native("LoadImage")
 	public static function loadImage(fileName:String):Image;

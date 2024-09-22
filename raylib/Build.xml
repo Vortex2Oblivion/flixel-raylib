@@ -1,14 +1,10 @@
 <xml>
+    <pragma once="true" />
     <set name="raylib_folder" value="${haxelib:flixel-raylib}/include" />
-
     <section>
         <files id="haxe">
             <compilerflag value="-I${raylib_folder}" />
             <compilerflag value="-I${raylib_folder}/external/glfw/include" />
-
-            <compilerflag value="-DSUPPORT_FILEFORMAT_JPG" unless="raylib-no-jpg" />
-            <compilerflag value="-DSUPPORT_FILEFORMAT_BMP" unless="raylib-no-bmp" />
-            <compilerflag value="-DSUPPORT_FILEFORMAT_TGA" unless="raylib-no-tga" />
 
             <file name="${raylib_folder}/rcore.c" />
             <file name="${raylib_folder}/utils.c" />

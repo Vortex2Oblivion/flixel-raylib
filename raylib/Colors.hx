@@ -2,6 +2,7 @@ package raylib;
 
 @:buildXml("<include name='${haxelib:flixel-raylib}/raylib/Build.xml' />")
 @:include("raylib.h")
+@:structAccess
 @:keep
 
 extern class Colors{
