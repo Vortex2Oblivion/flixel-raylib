@@ -1,13 +1,14 @@
 package raylib;
 
 import cpp.Star;
+import cpp.ConstCharStar;
 
 @:buildXml("<include name='${haxelib:flixel-raylib}/raylib/Build.xml' />")
 @:include("raylib.h")
 @:keep
 extern class Raylib {
 	@:native("InitWindow")
-	public static function initWindow(width:Int, height:Int, title:String):Void;
+	public static function initWindow(width:Int, height:Int, title:ConstCharStar):Void;
 
 	@:native("WindowShouldClose")
 	public static function windowShouldClose():Bool;
@@ -291,11 +292,56 @@ extern class Raylib {
 	@:native("DrawPolyLinesEx")
 	public static function drawPolyLinesEx(center:Vector2, sides:Int, radius:Float, rotation:Float, lineThick:Float, color:Color):Void;
 
+	@:native("DrawSplineLinear")
+	public static function drawSplineLinear(points:Star<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
+
+	@:native("DrawSplineBasis")
+	public static function drawSplineBasis(points:Star<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
+
+	@:native("DrawSplineCatmullRom")
+	public static function drawSplineCatmullRom(points:Star<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
+
+	@:native("DrawSplineBezierQuadratic")
+	public static function drawSplineBezierQuadratic(points:Star<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
+
+	@:native("DrawSplineBezierCubic")
+	public static function drawSplineBezierCubic(points:Star<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
+
+	@:native("DrawSplineSegmentLinear")
+	public static function drawSplineSegmentLinear(p1:Vector2, p2:Vector2, thick:Float, color:Color):Void;
+
+	@:native("DrawSplineSegmentBasis")
+	public static function drawSplineSegmentBasis(p1:Vector2, p2:Vector2, p3:Vector2, p4:Vector2, thick:Float, color:Color):Void;
+
+	@:native("DrawSplineSegmentCatmullRom")
+	public static function drawSplineSegmentCatmullRom(p1:Vector2, p2:Vector2, p3:Vector2, p4:Vector2, thick:Float, color:Color):Void;
+
+	@:native("DrawSplineSegmentBezierQuadratic")
+	public static function drawSplineSegmentBezierQuadratic(p1:Vector2, c2:Vector2, p3:Vector2, thick:Float, color:Color):Void;
+
+	@:native("DrawSplineSegmentBezierCubic")
+	public static function drawSplineSegmentBezierCubic(p1:Vector2, c2:Vector2, c3:Vector2, thick:Float, color:Color):Void;
+
+	@:native("GetSplinePointLinear")
+	public static function getSplinePointLinear(startPos:Vector2, endPos:Vector2, t:Float):Vector2;
+
+	@:native("GetSplinePointBasis")
+	public static function getSplinePointBasis(p1:Vector2, p2:Vector2, p3:Vector2, p4:Vector2, t:Float):Vector2;
+
+	@:native("GetSplinePointCatmullRom")
+	public static function getSplinePointCatmullRom(p1:Vector2, p2:Vector2, p3:Vector2, p4:Vector2, t:Float):Vector2;
+
+	@:native("GetSplinePointBezierQuad")
+	public static function getSplinePointBezierQuad(p1:Vector2, c2:Vector2, p3:Vector2, t:Float):Vector2;
+
+	@:native("GetSplinePointBezierCubic")
+	public static function GetSplinePointBezierCubic(p1:Vector2, c2:Vector2, c3:Vector2, p4:Vector2, t:Float):Vector2;
+
     @:native("LoadImage")
-	public static function loadImage(fileName:String):Image;
+	public static function loadImage(fileName:ConstCharStar):Image;
 
     @:native("LoadTexture")
-	public static function loadTexture(fileName:String):Texture2D;
+	public static function loadTexture(fileName:ConstCharStar):Texture2D;
 
     @:native("DrawTexture")
 	public static function drawTexture(texture:Texture2D, posX:Int, posY:Int, tint:Color):Void;
@@ -310,7 +356,7 @@ extern class Raylib {
 	public static function initAudioDevice():Void;
 
     @:native("LoadSound")
-	public static function loadSound(fileName:String):Sound;
+	public static function loadSound(fileName:ConstCharStar):Sound;
 
     @:native("PlaySound")
 	public static function playSound(sound:Sound):Void;
