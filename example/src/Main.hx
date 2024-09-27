@@ -11,7 +11,7 @@ class Main {
 		Raylib.initAudioDevice();
 
 		var sound:Sound = Raylib.loadSound("sensory overload.ogg");
-		Raylib.setWindowIcon(Raylib.loadImage("boomball.png"));
+		Raylib.setWindowIcon(Raylib.loadImageFromTexture(texture));
 
 		var rect:Rectangle = Rectangle.create(100, 200, 200, 100);
 

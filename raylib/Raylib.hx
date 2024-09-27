@@ -1,7 +1,10 @@
 package raylib;
 
 import cpp.Star;
+import cpp.ConstStar;
 import cpp.ConstCharStar;
+
+import cpp.UInt8;
 
 @:buildXml("<include name='${haxelib:flixel-raylib}/raylib/Build.xml' />")
 @:include("raylib.h")
@@ -335,10 +338,73 @@ extern class Raylib {
 	public static function getSplinePointBezierQuad(p1:Vector2, c2:Vector2, p3:Vector2, t:Float):Vector2;
 
 	@:native("GetSplinePointBezierCubic")
-	public static function GetSplinePointBezierCubic(p1:Vector2, c2:Vector2, c3:Vector2, p4:Vector2, t:Float):Vector2;
+	public static function getSplinePointBezierCubic(p1:Vector2, c2:Vector2, c3:Vector2, p4:Vector2, t:Float):Vector2;
+
+	@:native("CheckCollisionRecs")
+	public static function checkCollisionRecs(rect1:Rectangle, rect1:Rectangle):Bool;
+
+	@:native("CheckCollisionCircles")
+	public static function checkCollisionCircles(center1:Vector2, radius1:Float, center2:Vector2, radius2:Float):Bool;
+
+	@:native("CheckCollisionCircleRec")
+	public static function checkCollisionCircleRec(center:Vector2, radius:Float, rec:Rectangle):Bool;
+
+	@:native("CheckCollisionPointRec")
+	public static function checkCollisionPointRec(point:Vector2, rec:Rectangle):Bool;
+
+	@:native("CheckCollisionPointCircle")
+	public static function checkCollisionPointCircle(point:Vector2, center:Vector2, radius:Float):Bool;
+
+	@:native("CheckCollisionPointTriangle")
+	public static function checkCollisionPointTriangle(point:Vector2, p1:Vector2, p2:Vector2, p3:Vector2):Bool;
+
+	@:native("CheckCollisionPointPoly")
+	public static function checkCollisionPointPoly(point:Vector2, points:Star<Vector2>, pointCount:Int):Bool;
+
+	@:native("CheckCollisionLines")
+	public static function checkCollisionLines(startPos1:Vector2, endPos1:Vector2, startPos2:Vector2, endPos2:Vector2, collisionPoint:Star<Vector2>):Bool;
+
+	@:native("CheckCollisionPointLine")
+	public static function checkCollisionPointLine(point:Vector2, p1:Vector2, p2:Vector2, threshold:Int):Bool;
+
+	@:native("GetCollisionRec")
+	public static function getCollisionRec(rec1:Rectangle, rec2:Rectangle):Rectangle;
 
     @:native("LoadImage")
 	public static function loadImage(fileName:ConstCharStar):Image;
+	
+	@:native("LoadImageRaw")
+	public static function loadImageRaw(fileName:ConstCharStar, width:Int, height:Int, format:Int, headerSize:Int):Image;
+
+	@:native("LoadImageSvg")
+	public static function loadImageSvg(fileNameOrString:ConstCharStar, width:Int, height:Int):Image;
+
+	@:native("LoadImageAnim")
+	public static function loadImageAnim(fileName:ConstCharStar, frames:Int):Image;
+
+	@:native("LoadImageFromMemory")
+	public static function loadImageFromMemory(fileType:ConstCharStar, fileData:ConstStar<UInt8>, dataSize:Int):Image;
+
+	@:native("LoadImageFromTexture")
+	public static function loadImageFromTexture(texture:Texture2D):Image;
+
+	@:native("LoadImageFromScreen")
+	public static function loadImageFromScreen():Image;
+
+	@:native("IsImageReady")
+	public static function isImageReady(image:Image):Bool;
+
+	@:native("UnloadImage")
+	public static function unloadImage(image:Image):Void;
+
+	@:native("ExportImage")
+	public static function exportImage(image:Image, fileName:ConstCharStar):Bool;
+
+	@:native("ExportImageToMemory")
+	public static function exportImageToMemory(image:Image, fileName:ConstCharStar, fileSize:Star<Int>):Star<UInt8>;
+	
+	@:native("ExportImageAsCode")
+	public static function exportImageAsCode(image:Image, fileName:ConstCharStar):Bool;
 
     @:native("LoadTexture")
 	public static function loadTexture(fileName:ConstCharStar):Texture2D;
