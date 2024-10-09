@@ -406,6 +406,45 @@ extern class Raylib {
 	@:native("ExportImageAsCode")
 	public static function exportImageAsCode(image:Image, fileName:ConstCharStar):Bool;
 
+    @:native("GenImageColor")
+	public static function genImageColor(width:Int, height:Int, color:Color):Image;
+
+	@:native("GenImageGradientLinear")
+	public static function genImageGradientLinear(width:Int, height:Int, direction:Int, start:Color, end:Color):Image;
+
+	@:native("GenImageGradientRadial")
+	public static function genImageGradientRadial(width:Int, height:Int, density:Float, inner:Color, outer:Color):Image;
+
+	@:native("GenImageGradientSquare")
+	public static function genImageGradientSquare(width:Int, height:Int, density:Float, inner:Color, outer:Color):Image;
+
+	@:native("GenImageChecked")
+	public static function genImageChecked(width:Int, height:Int, checksX:Int, checksY:Int, col1:Color, col2:Color):Image;
+
+	@:native("GenImageWhiteNoise")
+	public static function genImageWhiteNoise(width:Int, height:Int, factor:Float):Image;
+
+	@:native("GenImagePerlinNoise")
+	public static function genImagePerlinNoise(width:Int, height:Int, offsetX:Int, offsetY:Int, scale:Float):Image;
+
+	@:native("GenImageCellular")
+	public static function genImageCellular(width:Int, height:Int, tileSize:Int):Image;
+
+	@:native("GenImageText")
+	public static function genImageText(width:Int, height:Int, text:ConstCharStar):Image;
+
+	@:native("ImageCopy")
+	public static function imageCopy(image:Image):Image;
+
+	@:native("ImageFromImage")
+	public static function imageFromImage(image:Image, rec:Rectangle):Image;
+
+	@:native("ImageText")
+	public static function imageText(text:ConstCharStar, fontSize:Int, color:Color):Image;
+
+	@:native("ImageTextEx")
+	public static function imageTextEx(font:Font, text:ConstCharStar, fontSize:Float, spacing:Float, tint:Color):Image;
+
     @:native("LoadTexture")
 	public static function loadTexture(fileName:ConstCharStar):Texture2D;
 
@@ -414,6 +453,9 @@ extern class Raylib {
 
     @:native("GetTime")
 	public static function getTime():Float;
+
+	@:native("GetFPS")
+	public static function getFPS():Int;
 
     @:native("ColorFromHSV")
 	public static function colorFromHSV(hue:Float, saturation:Float, value:Float):Color;
