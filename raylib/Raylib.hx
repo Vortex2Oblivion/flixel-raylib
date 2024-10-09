@@ -3,7 +3,7 @@ package raylib;
 import cpp.Star;
 import cpp.ConstStar;
 import cpp.ConstCharStar;
-
+import cpp.RawPointer;
 import cpp.UInt8;
 
 @:buildXml("<include name='${haxelib:flixel-raylib}/raylib/Build.xml' />")
@@ -92,7 +92,7 @@ extern class Raylib {
 	public static function setWindowFocused():Void;
 
 	@:native("GetWindowHandle")
-	public static function getWindowHandle():Dynamic;
+	public static function getWindowHandle():RawPointer<cpp.Void>;
 
 	@:native("GetScreenWidth")
 	public static function getScreenWidth():Int;
@@ -100,19 +100,19 @@ extern class Raylib {
 	@:native("GetScreenHeight")
 	public static function getScreenHeight():Int;
 
-    @:native("GetRenderWidth")
+	@:native("GetRenderWidth")
 	public static function getRenderWidth():Int;
 
 	@:native("GetRenderHeight")
 	public static function getRenderHeight():Int;
 
-    @:native("GetMonitorCount")
+	@:native("GetMonitorCount")
 	public static function getMonitorCount():Int;
 
-    @:native("GetCurrentMonitor")
+	@:native("GetCurrentMonitor")
 	public static function getCurrentMonitor():Int;
 
-    @:native("GetMonitorPosition")
+	@:native("GetMonitorPosition")
 	public static function getMonitorPosition(monitor:Int):Vector2;
 
 	@:native("CloseWindow")
@@ -124,7 +124,7 @@ extern class Raylib {
 	@:native("EndDrawing")
 	public static function endDrawing():Void;
 
-    @:native("GetMousePosition")
+	@:native("GetMousePosition")
 	public static function getMousePosition():Vector2;
 
 	@:native("GetMouseDelta")
@@ -189,7 +189,7 @@ extern class Raylib {
 
 	@:native("UpdateCamera")
 	public static function updateCamera(camera:Star<Camera>, mode:Int):Void;
-	
+
 	@:native("UpdateCameraPro")
 	public static function updateCameraPro(camera:Star<Camera>, movement:Vector3, rotation:Vector3, zoom:Float):Void;
 
@@ -219,7 +219,7 @@ extern class Raylib {
 
 	@:native("DrawCircle")
 	public static function drawCircle(centerX:Int, centerY:Int, radius:Float, color:Color):Void;
-	
+
 	@:native("DrawCircleSector")
 	public static function drawCircleSector(center:Vector2, radius:Float, startAngle:Float, endAngle:Float, segments:Int, color:Color):Void;
 
@@ -239,7 +239,8 @@ extern class Raylib {
 	public static function drawRing(center:Vector2, innerRadius:Float, outerRadius:Float, startAngle:Float, endAngle:Float, segments:Int, color:Color):Void;
 
 	@:native("DrawRingLines")
-	public static function drawRingLines(center:Vector2, innerRadius:Float, outerRadius:Float, startAngle:Float, endAngle:Float, segments:Int, color:Color):Void;
+	public static function drawRingLines(center:Vector2, innerRadius:Float, outerRadius:Float, startAngle:Float, endAngle:Float, segments:Int,
+		color:Color):Void;
 
 	@:native("DrawRectangle")
 	public static function drawRectangle(posX:Int, posY:Int, width:Int, height:Int, color:Color):Void;
@@ -269,7 +270,7 @@ extern class Raylib {
 	public static function drawRectangleLinesEx(rec:Rectangle, lineThick:Int, color:Color):Void;
 
 	@:native("DrawRectangleRounded")
-	public static function drawRectangleRounded(rec:Rectangle, roundness:Float, segments:Int,color:Color):Void;
+	public static function drawRectangleRounded(rec:Rectangle, roundness:Float, segments:Int, color:Color):Void;
 
 	@:native("DrawRectangleRoundedLines")
 	public static function drawRectangleRoundedLines(rec:Rectangle, roundness:Float, segments:Int, lineThick:Float, color:Color):Void;
@@ -370,9 +371,9 @@ extern class Raylib {
 	@:native("GetCollisionRec")
 	public static function getCollisionRec(rec1:Rectangle, rec2:Rectangle):Rectangle;
 
-    @:native("LoadImage")
+	@:native("LoadImage")
 	public static function loadImage(fileName:ConstCharStar):Image;
-	
+
 	@:native("LoadImageRaw")
 	public static function loadImageRaw(fileName:ConstCharStar, width:Int, height:Int, format:Int, headerSize:Int):Image;
 
@@ -402,11 +403,11 @@ extern class Raylib {
 
 	@:native("ExportImageToMemory")
 	public static function exportImageToMemory(image:Image, fileName:ConstCharStar, fileSize:Star<Int>):Star<UInt8>;
-	
+
 	@:native("ExportImageAsCode")
 	public static function exportImageAsCode(image:Image, fileName:ConstCharStar):Bool;
 
-    @:native("GenImageColor")
+	@:native("GenImageColor")
 	public static function genImageColor(width:Int, height:Int, color:Color):Image;
 
 	@:native("GenImageGradientLinear")
@@ -445,28 +446,37 @@ extern class Raylib {
 	@:native("ImageTextEx")
 	public static function imageTextEx(font:Font, text:ConstCharStar, fontSize:Float, spacing:Float, tint:Color):Image;
 
-    @:native("LoadTexture")
+	@:native("ImageFormat")
+	public static function imageFormat(image:Star<Image>, newFormat:Int):Void;
+
+	@:native("ImageToPOT")
+	public static function imageToPOT(image:Star<Image>, fill:Color):Void;
+
+	@:native("ImageCrop")
+	public static function imageCrop(image:Star<Image>, crop:Rectangle):Void;
+
+	@:native("LoadTexture")
 	public static function loadTexture(fileName:ConstCharStar):Texture2D;
 
-    @:native("DrawTexture")
+	@:native("DrawTexture")
 	public static function drawTexture(texture:Texture2D, posX:Int, posY:Int, tint:Color):Void;
 
-    @:native("GetTime")
+	@:native("GetTime")
 	public static function getTime():Float;
 
 	@:native("GetFPS")
 	public static function getFPS():Int;
 
-    @:native("ColorFromHSV")
+	@:native("ColorFromHSV")
 	public static function colorFromHSV(hue:Float, saturation:Float, value:Float):Color;
 
 	@:native("InitAudioDevice")
 	public static function initAudioDevice():Void;
 
-    @:native("LoadSound")
+	@:native("LoadSound")
 	public static function loadSound(fileName:ConstCharStar):Sound;
 
-    @:native("PlaySound")
+	@:native("PlaySound")
 	public static function playSound(sound:Sound):Void;
 
 	@:native("ClearBackground")
