@@ -15,4 +15,8 @@ extern class Color {
     public var b:UInt8;
 
     public var a:UInt8;
+
+    public static inline function create(r:UInt8, g:UInt8, b:UInt8, a:UInt8):Color {
+        return untyped __cpp__("Color{(int){0}, (int){1} , (int){2}, (int){3}}", r, g, b, a);
+    }
 }

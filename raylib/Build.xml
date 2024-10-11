@@ -2,6 +2,12 @@
     <pragma once="true" />
     <set name="raylib_folder" value="${haxelib:flixel-raylib}/include" />
     <section>
+        
+        <files id="__main__">
+            <compilerflag value="-I${raylib_folder}" />
+            <compilerflag value="-I${raylib_folder}/external/glfw/include" />
+        </files>
+
         <files id="haxe">
             <compilerflag value="-I${raylib_folder}" />
             <compilerflag value="-I${raylib_folder}/external/glfw/include" />
