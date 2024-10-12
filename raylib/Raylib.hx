@@ -9,6 +9,9 @@ import cpp.UInt8;
 @:buildXml("<include name='${haxelib:flixel-raylib}/raylib/Build.xml' />")
 @:include("raylib.h")
 @:keep
+/**
+ * Extern class that contains all the bindings to funtions in the Raylib header file.
+ */
 extern class Raylib {
 	@:native("InitWindow")
 	public static function initWindow(width:Int, height:Int, title:ConstCharStar):Void;
@@ -455,6 +458,87 @@ extern class Raylib {
 	@:native("ImageCrop")
 	public static function imageCrop(image:Star<Image>, crop:Rectangle):Void;
 
+	@:native("ImageAlphaCrop")
+	public static function imageAlphaCrop(image:Star<Image>, threshold:Float):Void;
+
+	@:native("ImageAlphaClear")
+	public static function imageAlphaClear(image:Star<Image>, color:Color, threshold:Float):Void;
+	
+	@:native("ImageAlphaMask")
+	public static function imageAlphaMask(image:Star<Image>, alphaMask:Image):Void;
+
+	@:native("ImageAlphaPremultiply")
+	public static function imageAlphaPremultiply(image:Star<Image>):Void;
+
+	@:native("ImageBlurGaussian")
+	public static function imageBlurGaussian(image:Star<Image>, blurSize:Int):Void;
+
+	@:native("ImageResize")
+	public static function imageResize(image:Star<Image>, newWidth:Int, newHeight:Int):Void;
+
+	@:native("ImageResizeNN")
+	public static function imageResizeNN(image:Star<Image>, newWidth:Int, newHeight:Int):Void;
+
+	@:native("ImageResizeCanvas")
+	public static function imageResizeCanvas(image:Star<Image>, newWidth:Int, newHeight:Int, offsetX:Int, offsetY:Int):Void;
+
+	@:native("ImageMipmaps")
+	public static function imageMipmaps(image:Star<Image>):Void;
+
+	@:native("ImageDither")
+	public static function imageDither(image:Star<Image>, rBpp:Int, gBpp:Int, bGbb:Int, aGbb:Int):Void;
+
+	@:native("ImageFlipVertical")
+	public static function imageFlipVertical(image:Star<Image>):Void;
+
+	@:native("ImageFlipHorizontal")
+	public static function imageFlipHorizontal(image:Star<Image>):Void;
+
+	@:native("ImageRotate")
+	public static function imageRotate(image:Star<Image>, degrees:Int):Void;
+
+	@:native("ImageRotateCW")
+	public static function imageRotateCW(image:Star<Image>):Void;
+
+	@:native("ImageRotateCCW")
+	public static function imageRotateCCW(image:Star<Image>):Void;
+
+	@:native("ImageColorTint")
+	public static function imageColorTint(image:Star<Image>, color:Color):Void;
+
+	@:native("ImageColorInvert")
+	public static function imageColorInvert(image:Star<Image>):Void;
+
+	@:native("ImageColorGrayscale")
+	public static function imageColorGrayscale(image:Star<Image>):Void;
+
+	@:native("ImageColorContrast")
+	public static function imageColorContrast(image:Star<Image>, contrast:Float):Void;
+
+	@:native("ImageColorBrightness")
+	public static function imageColorBrightness(image:Star<Image>, brightnes:Float):Void;
+
+	@:native("ImageColorReplace")
+	public static function imageColorReplace(image:Star<Image>, color:Color, replace:Color):Void;
+
+	@:native("LoadImageColors")
+	public static function loadImageColors(image:Image):RawPointer<Color>;
+
+	@:native("LoadImagePalette")
+	public static function loadImagePalette(image:Image, maxPaletteSize:Int, maxPaletteSize:Star<Int>):RawPointer<Color>;
+	
+	@:native("UnloadImageColors")
+	public static function unloadImageColors(colors:RawPointer<Color>):Void;
+
+	@:native("UnloadImagePalette")
+	public static function unloadImagePalette(colors:RawPointer<Color>):Void;
+	
+	@:native("GetImageAlphaBorder")
+	public static function getImageAlphaBorder(image:Image, threshold:Float):Rectangle;
+
+	@:native("GetImageColor")
+	public static function getImageColor(image:Image, x:Int, y:Int):Color;
+
 	@:native("LoadTexture")
 	public static function loadTexture(fileName:ConstCharStar):Texture2D;
 
@@ -481,4 +565,7 @@ extern class Raylib {
 
 	@:native("ClearBackground")
 	public static function clearBackground(color:Color):Void;
+
+	@:native("DrawFPS")
+	public static function drawFPS(x:Int, y:Int):Void;
 }

@@ -9,7 +9,8 @@ class Main {
 
 		while(!Raylib.windowShouldClose()){
 			Raylib.beginDrawing();
-			Raylib.clearBackground(Colors.BLACK);
+			Raylib.clearBackground(Color.create(255, 0, 255, 255));
+			Raylib.drawFPS(0, 0);
 			Raylib.endDrawing();
 		}
 		Raylib.closeWindow();
