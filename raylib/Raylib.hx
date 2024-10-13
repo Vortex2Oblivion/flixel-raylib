@@ -16,6 +16,9 @@ extern class Raylib {
 	@:native("InitWindow")
 	public static function initWindow(width:Int, height:Int, title:ConstCharStar):Void;
 
+	@:native("CloseWindow")
+	public static function closeWindow():Void;
+
 	@:native("WindowShouldClose")
 	public static function windowShouldClose():Bool;
 
@@ -118,14 +121,116 @@ extern class Raylib {
 	@:native("GetMonitorPosition")
 	public static function getMonitorPosition(monitor:Int):Vector2;
 
-	@:native("CloseWindow")
-	public static function closeWindow():Void;
+	@:native("GetMonitorWidth")
+	public static function getMonitorWidth(monitor:Int):Int;
+
+	@:native("GetMonitorHeight")
+	public static function getMonitorHeight(monitor:Int):Int;
+	
+	@:native("GetMonitorPhysicalWidth")
+	public static function getMonitorPhysicalWidth(monitor:Int):Int;
+
+	@:native("GetMonitorPhysicalHeight")
+	public static function getMonitorPhysicalHeight(monitor:Int):Int;
+
+	@:native("GetMonitorRefreshRate")
+	public static function getMonitorRefreshRate(monitor:Int):Int;
+
+	@:native("GetWindowPosition")
+	public static function getWindowPosition():Vector2;
+
+	@:native("GetWindowScaleDPI")
+	public static function getWindowScaleDPI():Vector2;
+	
+	@:native("GetMonitorName")
+	public static function getMonitorName(monitor:Int):ConstCharStar;
+	
+	@:native("SetClipboardText")
+	public static function setClipboardText(text:ConstCharStar):Void;
+
+	@:native("GetClipboardText")
+	public static function getClipboardText():ConstCharStar;
+
+	@:native("EnableEventWaiting")
+	public static function enableEventWaiting():Void;
+	
+	@:native("DisableEventWaiting")
+	public static function disableEventWaiting():Void;
+
+	@:native("ShowCursor")
+	public static function showCursor():Void;
+	
+	@:native("HideCursor")
+	public static function hideCursor():Void;
+
+	@:native("IsCursorHidden")
+	public static function isCursorHidden():Bool;
+	
+	@:native("EnableCursor")
+	public static function enableCursor():Void;
+
+	@:native("DisableCursor")
+	public static function disableCursor():Void;
+	
+	@:native("IsCursorOnScreen")
+	public static function isCursorOnScreen():Bool;
+
+	@:native("ClearBackground")
+	public static function clearBackground(color:Color):Void;
 
 	@:native("BeginDrawing")
 	public static function beginDrawing():Void;
 
 	@:native("EndDrawing")
 	public static function endDrawing():Void;
+
+	@:native("BeginMode2D")
+	public static function beginMode2D(camera:Camera2D):Void;
+
+	@:native("EndMode2D")
+	public static function endMode2D():Void;
+	
+	@:native("BeginMode3D")
+	public static function beginMode3D(camera:Camera3D):Void;
+
+	@:native("EndMode3D")
+	public static function endMode3D():Void;
+
+	@:native("BeginTextureMode")
+	public static function beginTextureMode(target:RenderTexture2D):Void;
+
+	@:native("EndTextureMode")
+	public static function endTextureMode():Void;
+
+	@:native("BeginShaderMode")
+	public static function beginShaderMode(shader:Shader):Void;
+
+	@:native("beginShaderMode")
+	public static function endnShaderMode():Void;
+
+	@:native("BeginBlendMode")
+	public static function beginBlendMode(mode:Int):Void;
+
+	@:native("EndBlendMode")
+	public static function endBlendMode():Void;
+
+	@:native("BeginScissorMode")
+	public static function beginScissorMode(x:Int, y:Int, width:Int, height:Int):Void;
+
+	@:native("EndScissorMode")
+	public static function endScissorMode():Void;
+
+	@:native("BeginVrStereoMode")
+	public static function beginVrStereoMode(config:VrStereoConfig):Void;
+
+	@:native("EndVrStereoMode")
+	public static function endVrStereoMode():Void;
+
+	@:native("LoadVrStereoConfig")
+	public static function loadVrStereoConfig(device:VrDeviceInfo):VrStereoConfig;
+	
+	@:native("UnloadVrStereoConfig")
+	public static function unloadVrStereoConfig(device:VrStereoConfig):Void;
 
 	@:native("GetMousePosition")
 	public static function getMousePosition():Vector2;
@@ -463,7 +568,7 @@ extern class Raylib {
 
 	@:native("ImageAlphaClear")
 	public static function imageAlphaClear(image:Star<Image>, color:Color, threshold:Float):Void;
-	
+
 	@:native("ImageAlphaMask")
 	public static function imageAlphaMask(image:Star<Image>, alphaMask:Image):Void;
 
@@ -526,21 +631,81 @@ extern class Raylib {
 
 	@:native("LoadImagePalette")
 	public static function loadImagePalette(image:Image, maxPaletteSize:Int, maxPaletteSize:Star<Int>):RawPointer<Color>;
-	
+
 	@:native("UnloadImageColors")
 	public static function unloadImageColors(colors:RawPointer<Color>):Void;
 
 	@:native("UnloadImagePalette")
 	public static function unloadImagePalette(colors:RawPointer<Color>):Void;
-	
+
 	@:native("GetImageAlphaBorder")
 	public static function getImageAlphaBorder(image:Image, threshold:Float):Rectangle;
 
 	@:native("GetImageColor")
 	public static function getImageColor(image:Image, x:Int, y:Int):Color;
 
+	@:native("ImageClearBackground")
+	public static function imageClearBackground(dst:Star<Image>, color:Color):Void;
+
+	@:native("ImageDrawPixel")
+	public static function imageDrawPixel(dst:Star<Image>, posX:Int, posY:Int, color:Color):Void;
+
+	@:native("ImageDrawPixelV")
+	public static function imageDrawPixelV(dst:Star<Image>, position:Vector2, color:Color):Void;
+
+	@:native("ImageDrawLine")
+	public static function imageDrawLine(dst:Star<Image>, startPosX:Int, startPosY:Int, endPosX:Int, endPosY:Int, color:Color):Void;
+
+	@:native("ImageDrawLineV")
+	public static function imageDrawLineV(dst:Star<Image>, startPos:Vector2, endPos:Vector2, color:Color):Void;
+
+	@:native("ImageDrawCircle")
+	public static function imageDrawCirle(dst:Star<Image>, centerX:Int, centerY:Int, radius:Int, color:Color):Void;
+
+	@:native("ImageDrawCircleV")
+	public static function imageDrawCirleV(dst:Star<Image>, center:Vector2, radius:Int, color:Color):Void;
+
+	@:native("ImageDrawCircle")
+	public static function imageDrawCirleLines(dst:Star<Image>, centerX:Int, centerY:Int, radius:Int, color:Color):Void;
+
+	@:native("ImageDrawCircleV")
+	public static function imageDrawCirleLinesV(dst:Star<Image>, center:Vector2, radius:Int, color:Color):Void;
+
+	@:native("ImageDrawRectangle")
+	public static function imageDrawRectangle(dst:Star<Image>, posX:Int, posY:Int, width:Int, height:Int, color:Color):Void;
+
+	@:native("ImageDrawRectangleV")
+	public static function imageDrawRectangleV(dst:Star<Image>, position:Vector2, size:Vector2, color:Color):Void;
+
+	@:native("ImageDrawRectangleRec")
+	public static function imageDrawRectangleRec(dst:Star<Image>, rec:Rectangle, color:Color):Void;
+
+	@:native("ImageDrawRectangleLines")
+	public static function imageDrawRectangleLines(dst:Star<Image>, rec:Rectangle, thick:Int, color:Color):Void;
+
+	@:native("ImageDraw")
+	public static function imageDraw(dst:Star<Image>, src:Image, srcRec:Rectangle, dstRec:Rectangle, tint:Color):Void;
+
+	@:native("ImageDrawText")
+	public static function imageDrawText(dst:Star<Image>, text:ConstCharStar, posX:Int, posY:Int, fontSize:Int, color:Color):Void;
+
+	@:native("ImageDrawTextEx")
+	public static function imageDrawTextEx(dst:Star<Image>, font:Font, text:ConstCharStar, position:Vector2, fontSize:Int, spacing:Float, color:Color):Void;
+
 	@:native("LoadTexture")
 	public static function loadTexture(fileName:ConstCharStar):Texture2D;
+
+	@:native("LoadTextureFromImage")
+	public static function loadTextureFromImage(image:Image):Texture2D;
+
+	@:native("LoadTextureCubemap")
+	public static function loadTextureCubemap(image:Image, layout:Int):TextureCubemap;
+
+	@:native("LoadRenderTexture")
+	public static function loadRenderTexture(width:Int, height:Int):RenderTexture2D;
+
+	@:native("IsTextureReady")
+	public static function isTextureReady(texture:Texture2D):Bool;
 
 	@:native("DrawTexture")
 	public static function drawTexture(texture:Texture2D, posX:Int, posY:Int, tint:Color):Void;
@@ -562,9 +727,6 @@ extern class Raylib {
 
 	@:native("PlaySound")
 	public static function playSound(sound:Sound):Void;
-
-	@:native("ClearBackground")
-	public static function clearBackground(color:Color):Void;
 
 	@:native("DrawFPS")
 	public static function drawFPS(x:Int, y:Int):Void;
