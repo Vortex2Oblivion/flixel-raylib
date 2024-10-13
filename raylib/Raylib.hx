@@ -730,4 +730,19 @@ extern class Raylib {
 
 	@:native("DrawFPS")
 	public static function drawFPS(x:Int, y:Int):Void;
+
+	@:native("LoadModel")
+	public static function loadModel(fileName:ConstCharStar):Model;
+
+	@:native("DrawModel")
+	public static function drawModel(model:Model, position:Vector3, scale:Float, tint:Color):Void;
+	
+	@:native("DrawGrid")
+	public static function drawGrid(slices:Int, spacing:Float):Void;
+
+	@:native("DrawCube")
+	public static function drawCube(position:Vector3, width:Float, height:Float, length:Float, color:Color):Void;
+
+	@:native("GetMeshBoundingBox")
+	public static function getMeshBoundingBox(mesh:Mesh):BoundingBox;
 }

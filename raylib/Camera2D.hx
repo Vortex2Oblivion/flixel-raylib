@@ -3,6 +3,7 @@ package raylib;
 @:buildXml("<include name='${haxelib:flixel-raylib}/raylib/Build.xml' />")
 @:include("raylib.h")
 @:keep
+@:structAccess
 @:native("Camera2D")
 extern class Camera2D {
     public var position:Vector2;
