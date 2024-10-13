@@ -1,2 +1,2 @@
-cd example
+cd test
 haxe build.hxml
