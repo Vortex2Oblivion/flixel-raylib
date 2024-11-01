@@ -8,7 +8,7 @@ import raylib.Vector2;
 import raylib.Rectangle;
 
 class FlxSprite extends FlxObject {
-	public var raylibTexture:Texture;
+	private var texture(default, set):Texture;
 
 	public var color:Color = Colors.WHITE;
 
@@ -20,14 +20,33 @@ class FlxSprite extends FlxObject {
 	}
 
 	public function loadGraphic(graphic:String):FlxSprite {
-		raylibTexture = Raylib.loadTexture(graphic);
+		texture = Raylib.loadTexture(graphic);
 		return this;
 	}
 
 	override public function draw() {
 		super.draw();
-		Raylib.drawTexturePro(raylibTexture, Rectangle.create(0, 0, raylibTexture.width, raylibTexture.height),
-			Rectangle.create(raylibTexture.width / 2, raylibTexture.height / 2, raylibTexture.width, raylibTexture.height),
-			Vector2.create(raylibTexture.width / 2, raylibTexture.height / 2), angle, color);
+		Raylib.drawTexturePro(texture, Rectangle.create(0, 0, texture.width, texture.height),
+			Rectangle.create((texture.width / 2) + x, (texture.height / 2) + y, texture.width, texture.height),
+			Vector2.create(texture.width / 2, texture.height / 2), angle, color);
 	}
+
+    @:noCompletion
+	function set_texture(texture:Texture):Texture
+	{
+		this.texture = texture;
+        width = texture.width;
+        height = texture.height;
+		return texture;
+	}
+
+    override function set_width(value:Float) {
+        texture.width = Std.int(value);
+        return super.set_width(value);
+    }
+
+    override function set_height(value:Float) {
+        texture.height = Std.int(value);
+        return super.set_height(value);
+    }
 }

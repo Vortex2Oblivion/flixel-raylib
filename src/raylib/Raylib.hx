@@ -716,6 +716,9 @@ extern class Raylib {
 	@:native("DrawTexturePro")
 	public static function drawTexturePro(texture:Texture2D, source:Rectangle, dest:Rectangle, origin:Vector2, rotation:Float, tint:Color):Void;
 
+	@:native("GetFrameTime")
+	public static function getFrameTime():Float;
+
 	@:native("GetTime")
 	public static function getTime():Float;
 
@@ -754,4 +757,7 @@ extern class Raylib {
 
 	@:native("SetConfigFlags")
 	public static function setConfigFlags(flags:ConfigFlags):Void;
+
+	@:native("IsKeyPressed")
+	public static function isKeyPressed(key:Int):Bool;
 }
