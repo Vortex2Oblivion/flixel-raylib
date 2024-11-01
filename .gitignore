@@ -1,2 +1,3 @@
-test/bin/
+test/bin/cpp/*
 .vscode/
+!test/bin/cpp/maurice.png
