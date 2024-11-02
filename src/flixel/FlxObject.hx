@@ -1,5 +1,7 @@
 package flixel;
 
+import flixel.util.FlxAxes;
+
 class FlxObject extends FlxBasic {
 	public var x:Float = 0;
 
@@ -20,7 +22,17 @@ class FlxObject extends FlxBasic {
 		this.height = height;
 	}
 
-    @:noCompletion
+	public function screenCenter(axes:FlxAxes = XY):FlxObject {
+		if (axes.x)
+			x = (FlxG.width - width) / 2;
+
+		if (axes.y)
+			y = (FlxG.height - height) / 2;
+
+		return this;
+	}
+
+	@:noCompletion
 	function get_width():Float {
 		return width;
 	}
@@ -30,7 +42,7 @@ class FlxObject extends FlxBasic {
 		return height;
 	}
 
-    @:noCompletion
+	@:noCompletion
 	function set_width(value:Float):Float {
 		return width = value;
 	}
