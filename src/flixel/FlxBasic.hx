@@ -14,4 +14,7 @@ class FlxBasic {
 	public function draw():Void {}
 
 	public function update(elapsed:Float):Void {}
+
+	public function destroy():Void {}
+
 }

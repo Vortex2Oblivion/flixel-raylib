@@ -701,6 +701,9 @@ extern class Raylib {
 	@:native("LoadTextureCubemap")
 	public static function loadTextureCubemap(image:Image, layout:Int):TextureCubemap;
 
+	@:native("UnloadTexture")
+	public static function unloadTexture(texture:Texture2D):Void;
+
 	@:native("LoadRenderTexture")
 	public static function loadRenderTexture(width:Int, height:Int):RenderTexture2D;
 

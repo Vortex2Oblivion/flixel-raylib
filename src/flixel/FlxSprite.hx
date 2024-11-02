@@ -31,6 +31,11 @@ class FlxSprite extends FlxObject {
 			Vector2.create(texture.width / 2, texture.height / 2), angle, color);
 	}
 
+	override public function destroy() {
+		Raylib.unloadTexture(texture);
+		super.destroy();
+	}
+
     @:noCompletion
 	function set_texture(texture:Texture):Texture
 	{

@@ -24,6 +24,15 @@ class FlxState extends FlxBasic {
 
 	public function create():Void {}
 
+	override public function destroy() {
+		super.destroy();
+		if(members == null) return;
+		for (member in members){
+			member?.destroy();
+			member = null;
+		}
+	}
+
 	public function new() {
 		super();
 		members = [];

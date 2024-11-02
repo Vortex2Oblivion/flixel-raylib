@@ -20,6 +20,8 @@ class FlxG {
     }
 
     public static function switchState(nextState:FlxState):Void {
+        state?.destroy();
+        state = null;
         state = nextState;
         nextState.create();
     }

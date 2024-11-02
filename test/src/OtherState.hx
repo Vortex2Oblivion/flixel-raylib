@@ -15,9 +15,9 @@ class OtherState extends FlxState {
     }
     override public function update(elapsed:Float) {
         super.update(elapsed);
+        bgColor = Raylib.colorFromHSV(Raylib.getTime() * 100, 1, 1);
         if (Raylib.isKeyPressed(32)) {
 			FlxG.switchState(new PlayState());
 		}
-        trace("penis");
     }
 }
