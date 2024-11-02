@@ -9,7 +9,7 @@
 
 ### What is this?
 A rewrite of the [HaxeFlixel](https://haxeflixel.com/) game framework to use a [Raylib](https://www.raylib.com/) backend.
-This is not meant to be a "replacement" for HaxeFlixel, but more as an "alternative" but more as a little project for me to work on to learn about C and writing externs.
+This is not meant to be a "replacement" for HaxeFlixel, it could be seen as an alternative if I get far with this but its mainly a little project for me to work on to learn about C and writing externs.
 
 I'll write a more proper README later.
 <p align="center">
