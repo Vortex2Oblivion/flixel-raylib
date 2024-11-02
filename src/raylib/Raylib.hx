@@ -716,6 +716,9 @@ extern class Raylib {
 	@:native("DrawTexturePro")
 	public static function drawTexturePro(texture:Texture2D, source:Rectangle, dest:Rectangle, origin:Vector2, rotation:Float, tint:Color):Void;
 
+	@:native("SetTargetFPS")
+	public static function setTargetFPS(fps:Int):Void;
+
 	@:native("GetFrameTime")
 	public static function getFrameTime():Float;
 
@@ -739,6 +742,9 @@ extern class Raylib {
 
 	@:native("DrawFPS")
 	public static function drawFPS(x:Int, y:Int):Void;
+
+	@:native("DrawText")
+	public static function drawText(text:ConstCharStar, x:Int, y:Int, fontSize:Int, color:Color):Void;
 
 	@:native("LoadModel")
 	public static function loadModel(fileName:ConstCharStar):Model;

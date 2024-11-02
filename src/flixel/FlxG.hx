@@ -1,0 +1,5 @@
+package flixel;
+
+class FlxG {
+    
+}
