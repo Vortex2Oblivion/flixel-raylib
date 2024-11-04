@@ -3,7 +3,7 @@ package flixel;
 import raylib.Raylib;
 
 class FlxG {
-    public static var state:FlxState;
+    public static var state(default, null):FlxState;
 
     public static var width(get, null):Int;
 
