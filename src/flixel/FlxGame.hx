@@ -6,6 +6,7 @@ import raylib.Colors;
 class FlxGame {
     public function new(gameWidth:Int = 0, gameHeight:Int = 0, initialState:FlxState, updateFramerate:Int = 60) {
         Raylib.initWindow(gameWidth, gameHeight, "FlxProject");
+        Raylib.initAudioDevice();
         Raylib.setTargetFPS(updateFramerate);
         FlxG.switchState(initialState);
         while (!Raylib.windowShouldClose()) {
@@ -17,6 +18,7 @@ class FlxGame {
             Raylib.drawFPS(0, 0);
             Raylib.endDrawing();
         }
+        Raylib.closeAudioDevice();
         Raylib.closeWindow();
     }
 }

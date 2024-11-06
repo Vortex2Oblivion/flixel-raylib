@@ -43,11 +43,11 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic {
 
 	override public function destroy() {
 		super.destroy();
-		if (members == null)
-			return;
-		for (member in members) {
-            member?.destroy();
-			member = null;
+		if(members != null){
+			for (member in members) {
+				member?.destroy();
+				member = null;
+			}
 		}
 	}
 
