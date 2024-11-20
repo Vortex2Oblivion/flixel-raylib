@@ -5,7 +5,7 @@ import flixel.FlxBasic;
 typedef FlxGroup = FlxTypedGroup<FlxBasic>;
 
 class FlxTypedGroup<T:FlxBasic> extends FlxBasic {
-	public var members:Array<FlxBasic>;
+	public var members:Array<T>;
 
 	public var maxSize(default, set):Int;
 
@@ -26,7 +26,7 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic {
 		}
 	}
 
-	public function add(basic:FlxBasic):FlxBasic {
+	public function add(basic:T):T {
 		if (basic == null)
 			return null;
 
