@@ -742,6 +742,9 @@ extern class Raylib {
 
 	@:native("LoadSound")
 	public static function loadSound(fileName:ConstCharStar):Sound;
+	
+	@:native("UnloadSound")
+	public static function unloadSound(sound:Sound):Void;
 
 	@:native("PlaySound")
 	public static function playSound(sound:Sound):Void;
