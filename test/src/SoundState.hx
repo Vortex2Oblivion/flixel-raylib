@@ -22,4 +22,9 @@ class SoundState extends FlxState {
 			FlxG.switchState(new PlayState());
 		}
     }
+
+    override public function destroy() {
+		super.destroy();
+		sound.destroy();
+	}
 }

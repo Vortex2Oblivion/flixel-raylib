@@ -1,7 +1,6 @@
 package flixel;
 
 import raylib.Texture;
-import raylib.Raylib;
 import raylib.Color;
 import raylib.Colors;
 import raylib.Vector2;
@@ -20,19 +19,19 @@ class FlxSprite extends FlxObject {
 	}
 
 	public function loadGraphic(graphic:String):FlxSprite {
-		texture = Raylib.loadTexture(graphic);
+		texture = loadTexture(graphic);
 		return this;
 	}
 
 	override public function draw() {
 		super.draw();
-		Raylib.drawTexturePro(texture, Rectangle.create(0, 0, texture.width, texture.height),
+		drawTexturePro(texture, Rectangle.create(0, 0, texture.width, texture.height),
 			Rectangle.create((texture.width / 2) + x, (texture.height / 2) + y, texture.width, texture.height),
 			Vector2.create(texture.width / 2, texture.height / 2), angle, color);
 	}
 
 	override public function destroy() {
-		Raylib.unloadTexture(texture);
+		unloadTexture(texture);
 		super.destroy();
 	}
 

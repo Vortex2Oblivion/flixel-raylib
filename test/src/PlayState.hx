@@ -24,6 +24,7 @@ class PlayState extends FlxState {
 		add(scythe);
 	}
 
+
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
 

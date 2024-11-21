@@ -1,6 +1,5 @@
 package flixel;
 
-import raylib.Raylib;
 
 class FlxG {
     public static var state(default, null):FlxState;
@@ -11,12 +10,12 @@ class FlxG {
 
     @:noCompletion 
     static function get_width() {
-        return Raylib.getScreenWidth();
+        return getScreenWidth();
     }
 
     @:noCompletion 
     static function get_height() {
-        return Raylib.getScreenHeight();
+        return getScreenHeight();
     }
 
     public static function switchState(nextState:FlxState):Void {
