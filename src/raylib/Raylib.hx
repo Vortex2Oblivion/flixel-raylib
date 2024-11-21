@@ -752,6 +752,24 @@ extern class Raylib {
 	@:native("StopSound")
 	public static function stopSound(sound:Sound):Void;
 
+	@:native("PauseSound")
+	public static function pauseSound(sound:Sound):Void;
+
+	@:native("ResumeSound")
+	public static function resumeSound(sound:Sound):Void;
+
+	@:native("IsSoundPlaying")
+	public static function isSoundPlaying(sound:Sound):Bool;
+	
+	@:native("SetSoundVolume")
+	public static function setSoundVolume(sound:Sound, volume:Float):Void;
+
+	@:native("SetSoundPitch")
+	public static function setSoundPitch(sound:Sound, pitch:Float):Void;
+
+	@:native("SetSoundPan")
+	public static function setSoundPan(sound:Sound, pan:Float):Void;
+
 	@:native("DrawFPS")
 	public static function drawFPS(x:Int, y:Int):Void;
 
@@ -778,4 +796,7 @@ extern class Raylib {
 
 	@:native("IsKeyPressed")
 	public static function isKeyPressed(key:Int):Bool;
+	
+	@:native("IsKeyDown")
+	public static function isKeyDown(key:Int):Bool;
 }

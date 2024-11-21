@@ -1,2 +1,2 @@
 --class-path src
---class-path test
+--class-path test/src
