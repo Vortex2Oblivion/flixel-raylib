@@ -11,14 +11,14 @@ class SoundState extends FlxState {
 	override public function create() {
 		super.create();
 		sound = new FlxSound();
-		sound.loadEmbedded("sound/Hades II - Mountain of the Gods - Supergiant Games.ogg");
+		sound.loadEmbedded("sound/BACKSTREET BOUNCE (RAP Version) - Key After Key.mp3");
 		sound.play();
 	}
 
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
 		if (Raylib.isKeyPressed(32)) {
-			FlxG.switchState(new PlayState());
+			FlxG.switchState(new TextState());
 		}
 
     if(Raylib.isKeyDown(263)){
@@ -29,7 +29,7 @@ class SoundState extends FlxState {
       sound.pitch += elapsed;
     }
 
-    sound.volume =  Math.abs(Math.sin(Raylib.getTime()));
+    //sound.volume =  Math.abs(Math.sin(Raylib.getTime()));
     sound.pan =  Math.sin(Raylib.getTime());
 	}
 

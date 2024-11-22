@@ -773,8 +773,26 @@ extern class Raylib {
 	@:native("DrawFPS")
 	public static function drawFPS(x:Int, y:Int):Void;
 
+	@:native("GetFontDefault")
+	public static function getFontDefault():Font;
+
+	@:native("LoadFont")
+	public static function loadFont(fileName:ConstCharStar):Font;
+
+	@:native("UnloadFont")
+	public static function unloadFont(font:Font):Void;
+
 	@:native("DrawText")
 	public static function drawText(text:ConstCharStar, x:Int, y:Int, fontSize:Int, color:Color):Void;
+
+	@:native("DrawTextEx")
+	public static function drawTextEx(font:Font, text:ConstCharStar, position:Vector2, fontSize:Float, spacing:Float, tint:Color):Void;
+
+	@:native("DrawTextPro")
+	public static function drawTextPro(font:Font, text:ConstCharStar, position:Vector2, origin:Vector2, roation:Float, fontSize:Float, spacing:Float, tint:Color):Void;
+
+	@:native("MeasureTextEx")
+	public static function measureTextEx(font:Font, text:ConstCharStar, fontSize:Float, spacing:Float):Vector2;
 
 	@:native("LoadModel")
 	public static function loadModel(fileName:ConstCharStar):Model;
