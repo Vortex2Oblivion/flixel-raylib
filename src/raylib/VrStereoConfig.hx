@@ -1,8 +1,5 @@
 package raylib;
 
-@:buildXml("<include name='${haxelib:flixel-raylib}/src/Build.xml'/>")
-@:include("raylib.h")
-@:keep
 @:native("VrStereoConfig")
 extern class VrStereoConfig {
 	public var projection:Array<Matrix>;

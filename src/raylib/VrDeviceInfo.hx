@@ -2,9 +2,6 @@ package raylib;
 
 import cpp.RawPointer;
 
-@:buildXml("<include name='${haxelib:flixel-raylib}/src/Build.xml'/>")
-@:include("raylib.h")
-@:keep
 @:native("VrDeviceInfo")
 extern class VrDeviceInfo {
 	public var hResolution:Int;

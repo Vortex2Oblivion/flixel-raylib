@@ -6,9 +6,6 @@ import cpp.ConstCharStar;
 import cpp.RawPointer;
 import cpp.UInt8;
 
-@:buildXml("<include name='${haxelib:flixel-raylib}/src/Build.xml'/>")
-@:include("raylib.h")
-@:keep
 /**
  * Extern class that contains all the bindings to funtions in the Raylib header file.
  */
@@ -126,7 +123,7 @@ extern class Raylib {
 
 	@:native("GetMonitorHeight")
 	public static function getMonitorHeight(monitor:Int):Int;
-	
+
 	@:native("GetMonitorPhysicalWidth")
 	public static function getMonitorPhysicalWidth(monitor:Int):Int;
 
@@ -141,10 +138,10 @@ extern class Raylib {
 
 	@:native("GetWindowScaleDPI")
 	public static function getWindowScaleDPI():Vector2;
-	
+
 	@:native("GetMonitorName")
 	public static function getMonitorName(monitor:Int):ConstCharStar;
-	
+
 	@:native("SetClipboardText")
 	public static function setClipboardText(text:ConstCharStar):Void;
 
@@ -153,25 +150,25 @@ extern class Raylib {
 
 	@:native("EnableEventWaiting")
 	public static function enableEventWaiting():Void;
-	
+
 	@:native("DisableEventWaiting")
 	public static function disableEventWaiting():Void;
 
 	@:native("ShowCursor")
 	public static function showCursor():Void;
-	
+
 	@:native("HideCursor")
 	public static function hideCursor():Void;
 
 	@:native("IsCursorHidden")
 	public static function isCursorHidden():Bool;
-	
+
 	@:native("EnableCursor")
 	public static function enableCursor():Void;
 
 	@:native("DisableCursor")
 	public static function disableCursor():Void;
-	
+
 	@:native("IsCursorOnScreen")
 	public static function isCursorOnScreen():Bool;
 
@@ -189,7 +186,7 @@ extern class Raylib {
 
 	@:native("EndMode2D")
 	public static function endMode2D():Void;
-	
+
 	@:native("BeginMode3D")
 	public static function beginMode3D(camera:Camera3D):Void;
 
@@ -228,7 +225,7 @@ extern class Raylib {
 
 	@:native("LoadVrStereoConfig")
 	public static function loadVrStereoConfig(device:VrDeviceInfo):VrStereoConfig;
-	
+
 	@:native("UnloadVrStereoConfig")
 	public static function unloadVrStereoConfig(device:VrStereoConfig):Void;
 
@@ -715,7 +712,7 @@ extern class Raylib {
 
 	@:native("DrawTextureEx")
 	public static function drawTextureEx(texture:Texture2D, position:Vector2, rotation:Float, scale:Float, tint:Color):Void;
-	
+
 	@:native("DrawTexturePro")
 	public static function drawTexturePro(texture:Texture2D, source:Rectangle, dest:Rectangle, origin:Vector2, rotation:Float, tint:Color):Void;
 
@@ -742,7 +739,7 @@ extern class Raylib {
 
 	@:native("LoadSound")
 	public static function loadSound(fileName:ConstCharStar):Sound;
-	
+
 	@:native("UnloadSound")
 	public static function unloadSound(sound:Sound):Void;
 
@@ -760,7 +757,7 @@ extern class Raylib {
 
 	@:native("IsSoundPlaying")
 	public static function isSoundPlaying(sound:Sound):Bool;
-	
+
 	@:native("SetSoundVolume")
 	public static function setSoundVolume(sound:Sound, volume:Float):Void;
 
@@ -789,7 +786,8 @@ extern class Raylib {
 	public static function drawTextEx(font:Font, text:ConstCharStar, position:Vector2, fontSize:Float, spacing:Float, tint:Color):Void;
 
 	@:native("DrawTextPro")
-	public static function drawTextPro(font:Font, text:ConstCharStar, position:Vector2, origin:Vector2, roation:Float, fontSize:Float, spacing:Float, tint:Color):Void;
+	public static function drawTextPro(font:Font, text:ConstCharStar, position:Vector2, origin:Vector2, roation:Float, fontSize:Float, spacing:Float,
+		tint:Color):Void;
 
 	@:native("MeasureTextEx")
 	public static function measureTextEx(font:Font, text:ConstCharStar, fontSize:Float, spacing:Float):Vector2;
@@ -799,7 +797,7 @@ extern class Raylib {
 
 	@:native("DrawModel")
 	public static function drawModel(model:Model, position:Vector3, scale:Float, tint:Color):Void;
-	
+
 	@:native("DrawGrid")
 	public static function drawGrid(slices:Int, spacing:Float):Void;
 
@@ -814,7 +812,7 @@ extern class Raylib {
 
 	@:native("IsKeyPressed")
 	public static function isKeyPressed(key:Int):Bool;
-	
+
 	@:native("IsKeyDown")
 	public static function isKeyDown(key:Int):Bool;
 }
