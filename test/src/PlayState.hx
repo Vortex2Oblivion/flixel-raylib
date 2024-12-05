@@ -1,7 +1,9 @@
 package;
 
+import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxState;
+import flixel.FlxObject;
 import flixel.FlxSprite;
 import raylib.RayMath;
 import raylib.Raylib;
@@ -13,6 +15,7 @@ class PlayState extends FlxState {
 
 	override public function create() {
 		super.create();
+
 		skateboard = new FlxSprite();
 		skateboard.loadGraphic("images/skateboard.png");
 		add(skateboard);
@@ -23,7 +26,6 @@ class PlayState extends FlxState {
 		scythe.height *= 0.25;
 		add(scythe);
 	}
-
 
 	override public function update(elapsed:Float) {
 		super.update(elapsed);

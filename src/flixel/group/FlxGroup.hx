@@ -54,7 +54,6 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic {
     @:noCompletion
     function set_maxSize(size:Int):Int {
         maxSize = Std.int(Math.abs(size));
-
     
         if (maxSize == 0 || members == null || maxSize >= length)
             return maxSize;

@@ -1,25 +1,31 @@
 package flixel;
 
-import raylib.Texture;
 import raylib.Color;
 import raylib.Colors;
-import raylib.Vector2;
+import raylib.Image;
 import raylib.Rectangle;
+import raylib.Vector2;
+import raylib.Texture;
 
 class FlxSprite extends FlxObject {
 	private var texture(default, set):Texture;
 
 	public var color:Color = Colors.WHITE;
 
-	public function new(?x:Float = 0, ?y:Float = 0, ?graphic:String) {
+	public function new(x:Float = 0, y:Float = 0, ?graphic:String) {
 		super(x, y);
 		if (graphic != null) {
 			loadGraphic(graphic);
 		}
 	}
 
-	public function loadGraphic(graphic:String):FlxSprite {
+	public inline overload extern function loadGraphic(graphic:String):FlxSprite {
 		texture = loadTexture(graphic);
+		return this;
+	}
+
+	public inline overload extern function loadGraphic(image:Image):FlxSprite {
+		texture = loadTextureFromImage(image);
 		return this;
 	}
 
@@ -35,22 +41,21 @@ class FlxSprite extends FlxObject {
 		super.destroy();
 	}
 
-    @:noCompletion
-	function set_texture(texture:Texture):Texture
-	{
+	@:noCompletion
+	function set_texture(texture:Texture):Texture {
 		this.texture = texture;
-        width = texture.width;
-        height = texture.height;
+		width = texture.width;
+		height = texture.height;
 		return texture;
 	}
 
-    override function set_width(value:Float) {
-        texture.width = Std.int(value);
-        return super.set_width(value);
-    }
+	override function set_width(value:Float) {
+		texture.width = Std.int(value);
+		return super.set_width(value);
+	}
 
-    override function set_height(value:Float) {
-        texture.height = Std.int(value);
-        return super.set_height(value);
-    }
+	override function set_height(value:Float) {
+		texture.height = Std.int(value);
+		return super.set_height(value);
+	}
 }

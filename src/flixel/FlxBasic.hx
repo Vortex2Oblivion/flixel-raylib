@@ -8,6 +8,12 @@ class FlxBasic {
 	public var alive:Bool = true;
 
 	public var exists:Bool = true;
+	
+	@:noCompletion static var idEnumerator:Int = 0;
+
+	public var ID:Int = idEnumerator++;
+
+	public var camera(get, default):FlxCamera = FlxG.camera;
 
 	public function new() {}
 
@@ -15,6 +21,12 @@ class FlxBasic {
 
 	public function update(elapsed:Float):Void {}
 
-	public function destroy():Void {}
+	public function destroy():Void {
+		exists = false;
+	}
+
+	@:noCompletion function get_camera():FlxCamera {
+		return camera;
+	}
 
 }

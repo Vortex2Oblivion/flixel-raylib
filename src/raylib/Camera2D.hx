@@ -6,7 +6,7 @@ package raylib;
 @:structAccess
 @:native("Camera2D")
 extern class Camera2D {
-    public var position:Vector2;
+    public var offset:Vector2;
 
     public var target:Vector2;
 
@@ -15,6 +15,6 @@ extern class Camera2D {
     public var zoom:Float;
 
     public static inline function create():Camera2D {
-        return untyped __cpp__("Camera2D{0}");
+        return untyped __cpp__("Camera2D { 0 } ");
     }
 }

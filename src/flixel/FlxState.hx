@@ -7,8 +7,8 @@ import raylib.Color;
 import raylib.Colors;
 
 class FlxState extends FlxContainer {
+	
 	public var bgColor:Color = Colors.BLACK;
-
 
 	public function create():Void {}
 
