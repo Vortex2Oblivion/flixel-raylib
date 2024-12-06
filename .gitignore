@@ -1,3 +1,4 @@
 test/bin/cpp/*
 .vscode/
+.zed/
 !test/bin/cpp/images/
