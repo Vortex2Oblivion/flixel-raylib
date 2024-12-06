@@ -2,10 +2,6 @@ package raylib;
 
 import cpp.UInt8;
 
-@:buildXml("<include name='${haxelib:flixel-raylib}/src/Build.xml'/>")
-@:include("raylib.h")
-@:structAccess
-@:keep
 @:native("Color")
 extern class Color {
     public var r:UInt8;
