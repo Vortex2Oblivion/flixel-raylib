@@ -10,7 +10,7 @@ class SoundState extends FlxState {
 
 	override public function create() {
 		super.create();
-		sound = new FlxSound();
+		sound = FlxG.sound.list.add(new FlxSound());
 		sound.loadEmbedded("sound/BACKSTREET BOUNCE (RAP Version) - Key After Key.mp3");
 		sound.play();
 	}
@@ -33,8 +33,4 @@ class SoundState extends FlxState {
     sound.pan =  Math.sin(Raylib.getTime());
 	}
 
-	override public function destroy() {
-		super.destroy();
-		sound.destroy();
-	}
 }

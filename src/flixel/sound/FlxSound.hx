@@ -15,6 +15,8 @@ class FlxSound extends FlxBasic {
 
     public var pan(default, set):Float = 0.5;
 
+	public var persist:Bool;
+
 	public function loadEmbedded(embeddedSound:ConstCharStar):FlxSound {
 		sound = loadSound(embeddedSound);
 		return this;

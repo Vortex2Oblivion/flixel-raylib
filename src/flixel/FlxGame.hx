@@ -11,15 +11,18 @@ class FlxGame {
 			beginDrawing();
 			clearBackground(FlxG.state.bgColor);
 			for (camera in FlxG.cameras.list) {
-				beginMode2D(camera._camera);
-				camera.update(getFrameTime());
-				for (member in FlxG.state.members) {
-					if (member.camera == camera) {
-						member.draw();
+				if (camera != null && camera.exists && camera.active) {
+					beginMode2D(camera._camera);
+					camera.update(getFrameTime());
+					for (member in FlxG.state.members) {
+						if (member.camera == camera) {
+							member.draw();
+						}
 					}
+					endMode2D();
 				}
-				endMode2D();
 			}
+			FlxG.sound.update(getFrameTime());
 			FlxG.state.update(getFrameTime());
 			endDrawing();
 		}

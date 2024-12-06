@@ -11,6 +11,18 @@ class CameraFrontEnd {
 		FlxCamera._defaultCamera = defaultCamera;
 	}
 
+	@:allow(flixel.FlxGame)
+	inline function update(elapsed:Float):Void
+	{
+		for (camera in list)
+		{
+			if (camera != null && camera.exists && camera.active)
+			{
+				camera.update(elapsed);
+			}
+		}
+	}
+
 	public function add<T:FlxCamera>(camera:T, defaultDraw:Bool = true):T {
 		list.push(camera);
 		defaultCamera = camera;
