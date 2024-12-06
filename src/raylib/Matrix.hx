@@ -1,8 +1,5 @@
 package raylib;
 
-@:buildXml("<include name='${haxelib:flixel-raylib}/src/Build.xml'/>")
-@:include("raylib.h")
-@:keep
 @:native("Matrix")
 extern class Matrix {
     public var m0:Float;
