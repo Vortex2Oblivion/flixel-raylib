@@ -767,6 +767,39 @@ extern class Raylib {
 	@:native("SetSoundPan")
 	public static function setSoundPan(sound:Sound, pan:Float):Void;
 
+	@:native("LoadMusicStream")
+	public static function loadMusicStream(fileName:ConstCharStar):Music;
+
+	@:native("UnloadMusicStream")
+	public static function unloadMusicStream(music:Music):Void;
+
+	@:native("PlayMusicStream")
+	public static function playMusicStream(music:Music):Void;
+
+	@:native("IsMusicStreamPlaying")
+	public static function isMusicStreamPlaying(music:Music):Bool;
+
+	@:native("UpdateMusicStream")
+	public static function updateMusicStream(music:Music):Void;
+
+	@:native("StopMusicStream")
+	public static function stopMusicStream(music:Music):Void;
+
+	@:native("PauseMusicStream")
+	public static function pauseMusicStream(music:Music):Void;
+
+	@:native("ResumeMusicStream")
+	public static function resumeMusicStream(music:Music):Void;
+
+	@:native("SetMusicVolume")
+	public static function setMusicVolume(music:Music, volume:Float):Void;
+
+	@:native("SetMusicPitch")
+	public static function setMusicPitch(music:Music, pitch:Float):Void;
+
+	@:native("SetMusicPan")
+	public static function setMusicPan(music:Music, pan:Float):Void;
+
 	@:native("DrawFPS")
 	public static function drawFPS(x:Int, y:Int):Void;
 
@@ -811,8 +844,26 @@ extern class Raylib {
 	public static function setConfigFlags(flags:ConfigFlags):Void;
 
 	@:native("IsKeyPressed")
-	public static function isKeyPressed(key:Int):Bool;
+	public static function isKeyPressed(key:KeyboardKey):Bool;
+
+	@:native("IsKeyPressedRepeat")
+	public static function isKeyPressedRepeat(key:KeyboardKey):Bool;
 
 	@:native("IsKeyDown")
-	public static function isKeyDown(key:Int):Bool;
+	public static function isKeyDown(key:KeyboardKey):Bool;
+
+	@:native("IsKeyReleased")
+	public static function isKeyReleased(key:KeyboardKey):Bool;
+
+	@:native("IsKeyUp")
+	public static function isKeyUp(key:KeyboardKey):Bool;
+
+	@:native("GetKeyPressed")
+	public static function getKeyPressed():KeyboardKey;
+
+	@:native("GetCharPressed")
+	public static function getCharPressed():KeyboardKey;
+
+	@:native("SetExitKey")
+	public static function setExitKey(key:KeyboardKey):Void;
 }

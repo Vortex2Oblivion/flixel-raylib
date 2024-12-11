@@ -2,10 +2,10 @@ package flixel.sound;
 
 import cpp.ConstCharStar;
 import flixel.FlxBasic;
-import raylib.Sound;
+import raylib.Music;
 
 class FlxSound extends FlxBasic {
-	var sound:Sound;
+	var music:Music;
 
 	public var playing(get, null):Bool = false;
 
@@ -18,47 +18,52 @@ class FlxSound extends FlxBasic {
 	public var persist:Bool;
 
 	public function loadEmbedded(embeddedSound:ConstCharStar):FlxSound {
-		sound = loadSound(embeddedSound);
+		music = loadMusicStream(embeddedSound);
 		return this;
 	}
 
 	public inline function play() {
-		playSound(sound);
+		playMusicStream(music);
 	}
 
 	public inline function stop() {
-		stopSound(sound);
+		stopMusicStream(music);
 	}
 
 	public inline function resume() {
-		resumeSound(sound);
+		resumeMusicStream(music);
 	}
 
 	public inline function pause() {
-		pauseSound(sound);
+		pauseMusicStream(music);
 	}
 
 	override public function destroy() {
-		unloadSound(sound);
+		unloadMusicStream(music);
 		super.destroy();
 	}
 
+	override public function update(elapsed:Float) {
+		super.update(elapsed);
+		updateMusicStream(music);
+	}
+
 	@:noCompletion inline function get_playing():Bool {
-		return isSoundPlaying(sound);
+		return isMusicStreamPlaying(music);
 	}
 
     @:noCompletion function set_pitch(pitch:Float):Float {
-        setSoundPitch(sound, pitch);
+        setMusicPitch(music, pitch);
 		return this.pitch = pitch;
 	}
 
     @:noCompletion function set_volume(volume:Float):Float {
-        setSoundVolume(sound, volume);
+        setMusicVolume(music, volume);
 		return this.volume = volume;
 	}
 
     @:noCompletion function set_pan(pan:Float):Float {
-        setSoundPan(sound, pan);
+        setMusicPan(music, pan);
 		return this.pan = pan;
 	}
 }

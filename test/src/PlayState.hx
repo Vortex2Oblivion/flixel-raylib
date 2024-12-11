@@ -33,7 +33,7 @@ class PlayState extends FlxState {
 		scythe.x = RayMath.lerp(scythe.x, Raylib.getMousePosition().x, elapsed * 10);
 		scythe.y = RayMath.lerp(scythe.y, Raylib.getMousePosition().y, elapsed * 10);
 
-		if (Raylib.isKeyPressed(32)) {
+		if (Raylib.isKeyPressed(KEY_SPACE)) {
 			FlxG.switchState(new OtherState());
 		}
 	}

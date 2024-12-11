@@ -51,6 +51,15 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic {
 		}
 	}
 
+	override public function update(elapsed:Float) {
+		super.update(elapsed);
+		for (basic in members) {
+            if (basic != null && basic.exists && basic.active) {
+                basic.update(elapsed);
+			}
+		}
+	}
+
     @:noCompletion
     function set_maxSize(size:Int):Int {
         maxSize = Std.int(Math.abs(size));
