@@ -20,7 +20,7 @@ jobs:
 
       - name: Compiling 
         run: |
-          haxelib --quiet git hxpy https://github.com/Vortex2Oblivion/flixel-raylib
+          haxelib git flixel-raylib https://github.com/Vortex2Oblivion/flixel-raylib
           cd test
           haxe build.hxml
   build-macos:
@@ -38,7 +38,7 @@ jobs:
 
       - name: Compiling 
         run: |
-          haxelib --quiet git hxpy https://github.com/Vortex2Oblivion/flixel-raylib
+          haxelib git flixel-raylib https://github.com/Vortex2Oblivion/flixel-raylib
           cd test
           haxe build.hxml
   build-linux:
@@ -56,7 +56,7 @@ jobs:
 
       - name: Compiling 
         run: |
-          haxelib --quiet git hxpy https://github.com/Vortex2Oblivion/flixel-raylib
+          haxelib git flixel-raylib https://github.com/Vortex2Oblivion/flixel-raylib
           cd test
           haxe build.hxml
           
