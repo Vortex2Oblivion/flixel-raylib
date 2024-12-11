@@ -22,16 +22,20 @@
             <file name="${raylib_folder}/rglfw.c" />
         </files>
 
-
-        <compilerflag value="-DPLATFORM_DESKTOP" />
+        <!-- WINDOWS COMPILER -->
+        <files id="haxe" if="windows">
+            <compilerflag value="-DPLATFORM_DESKTOP" />
+        </files>
 
         <!-- OSX COMPILER -->
         <files id="haxe" if="macos">
+            <compilerflag value="-DPLATFORM_DESKTOP" />
             <compilerflag value="-D_GLFW_COCOA" />
         </files>
 
         <!-- LINUX COMPILER -->
         <files id="haxe" if="linux">
+            <compilerflag value="-DPLATFORM_DESKTOP" />
             <compilerflag value="-D_GLFW_X11" />
             <compilerflag value="-D_GNU_SOURCE" />
         </files>
