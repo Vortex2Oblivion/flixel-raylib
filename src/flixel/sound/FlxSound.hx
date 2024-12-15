@@ -9,11 +9,11 @@ class FlxSound extends FlxBasic {
 
 	public var playing(get, null):Bool = false;
 
-    public var pitch(default, set):Float = 1.0;
+	public var pitch(default, set):Float = 1.0;
 
-    public var volume(default, set):Float = 1.0;
+	public var volume(default, set):Float = 1.0;
 
-    public var pan(default, set):Float = 0.5;
+	public var pan(default, set):Float = 0.5;
 
 	public var persist:Bool;
 
@@ -48,23 +48,26 @@ class FlxSound extends FlxBasic {
 		updateMusicStream(music);
 	}
 
-	@:noCompletion inline function get_playing():Bool {
+	@:noCompletion 
+	inline function get_playing():Bool {
 		return isMusicStreamPlaying(music);
 	}
 
-    @:noCompletion function set_pitch(pitch:Float):Float {
-        setMusicPitch(music, pitch);
+	@:noCompletion 
+	function set_pitch(pitch:Float):Float {
+		setMusicPitch(music, pitch);
 		return this.pitch = pitch;
 	}
 
-    @:noCompletion function set_volume(volume:Float):Float {
-        setMusicVolume(music, volume);
+	@:noCompletion 
+	function set_volume(volume:Float):Float {
+		setMusicVolume(music, volume);
 		return this.volume = volume;
 	}
 
-    @:noCompletion function set_pan(pan:Float):Float {
-        setMusicPan(music, pan);
+	@:noCompletion 
+	function set_pan(pan:Float):Float {
+		setMusicPan(music, pan);
 		return this.pan = pan;
 	}
 }
-

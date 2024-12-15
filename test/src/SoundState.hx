@@ -21,16 +21,15 @@ class SoundState extends FlxState {
 			FlxG.switchState(new TextState());
 		}
 
-    if(Raylib.isKeyDown(263)){
-      sound.pitch -= elapsed;
-    }
+		if (Raylib.isKeyDown(KEY_LEFT)) {
+			sound.pitch -= elapsed;
+		}
 
-    if(Raylib.isKeyDown(262)){
-      sound.pitch += elapsed;
-    }
+		if (Raylib.isKeyDown(KEY_RIGHT)) {
+			sound.pitch += elapsed;
+		}
 
-    //sound.volume =  Math.abs(Math.sin(Raylib.getTime()));
-    sound.pan =  Math.sin(Raylib.getTime());
+		// sound.volume =  Math.abs(Math.sin(Raylib.getTime()));
+		// sound.pan =  Math.sin(Raylib.getTime());
 	}
-
 }

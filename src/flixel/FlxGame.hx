@@ -10,6 +10,8 @@ class FlxGame {
 		while (!windowShouldClose()) {
 			beginDrawing();
 			clearBackground(FlxG.state.bgColor);
+			FlxG.sound.update(getFrameTime());
+			FlxG.state.update(getFrameTime());
 			for (camera in FlxG.cameras.list) {
 				if (camera != null && camera.exists && camera.active) {
 					beginMode2D(camera._camera);
@@ -22,8 +24,7 @@ class FlxGame {
 					endMode2D();
 				}
 			}
-			FlxG.sound.update(getFrameTime());
-			FlxG.state.update(getFrameTime());
+			drawFPS(1, 1);
 			endDrawing();
 		}
 		closeAudioDevice();

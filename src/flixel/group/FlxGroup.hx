@@ -9,19 +9,18 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic {
 
 	public var maxSize(default, set):Int;
 
-    public var length(default, null):Int = 0;
+	public var length(default, null):Int = 0;
 
-    
 	public function new(maxSize:Int = 0) {
-        super();
+		super();
 		members = [];
 		this.maxSize = Std.int(Math.abs(maxSize));
 	}
-    
+
 	override public function draw():Void {
-        for (basic in members) {
-            if (basic != null && basic.exists && basic.visible) {
-                basic.draw();
+		for (basic in members) {
+			if (basic != null && basic.exists && basic.visible) {
+				basic.draw();
 			}
 		}
 	}
@@ -35,7 +34,7 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic {
 
 		if (maxSize > 0 && length >= maxSize)
 			return basic;
-        
+
 		members.push(basic);
 
 		return basic;
@@ -43,7 +42,7 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic {
 
 	override public function destroy() {
 		super.destroy();
-		if(members != null){
+		if (members != null) {
 			for (member in members) {
 				member?.destroy();
 				member = null;
@@ -54,25 +53,69 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic {
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
 		for (basic in members) {
-            if (basic != null && basic.exists && basic.active) {
-                basic.update(elapsed);
+			if (basic != null && basic.exists && basic.active) {
+				basic.update(elapsed);
 			}
 		}
 	}
 
-    @:noCompletion
-    function set_maxSize(size:Int):Int {
-        maxSize = Std.int(Math.abs(size));
-    
-        if (maxSize == 0 || members == null || maxSize >= length)
-            return maxSize;
-    
-        // If the max size has shrunk, we need to get rid of some objects
-        while (length > maxSize) {    
-            members.splice(maxSize - 1, 1)[0]?.destroy();
-            length--;
-        }
-    
-        return maxSize;
-    }
+	@:noCompletion
+	function set_maxSize(size:Int):Int {
+		maxSize = Std.int(Math.abs(size));
+
+		if (maxSize == 0 || members == null || maxSize >= length)
+			return maxSize;
+
+		// If the max size has shrunk, we need to get rid of some objects
+		while (length > maxSize) {
+			members.splice(maxSize - 1, 1)[0]?.destroy();
+			length--;
+		}
+
+		return maxSize;
+	}
+
+	public function remove(basic:T, splice = false):T {
+		if (members == null)
+			return null;
+
+		final index:Int = members.indexOf(basic);
+
+		if (index < 0)
+			return null;
+
+		if (splice) {
+			members.splice(index, 1);
+			length--;
+		} else
+			members[index] = null;
+
+		return basic;
+	}
+
+	public inline function getFirstAlive():Null<T> {
+		return getFirstHelper((basic) -> basic.exists && basic.alive);
+	}
+
+	function getFirstHelper(func:T->Bool):Null<T> {
+		for (basic in members) {
+			if (basic != null && func(basic)) {
+				return basic;
+			}
+		}
+		return null;
+	}
+
+	public function countLiving():Int {
+		var count:Int = 0;
+
+		for (basic in members) {
+			if (basic != null) {
+				if (basic.exists && basic.alive)
+					count++;
+			}
+		}
+
+		return count;
+	}
 }

@@ -3,7 +3,10 @@ package flixel;
 import flixel.FlxCamera;
 import flixel.system.frontEnds.CameraFrontEnd;
 import flixel.system.frontEnds.SoundFrontEnd;
+import haxe.Log;
+import haxe.PosInfos;
 
+@:cppFileCode('#include <iostream>')
 class FlxG {
 	public static var elapsed(get, null):Float;
 
@@ -23,20 +26,23 @@ class FlxG {
 
 	public static var sound(default, null):SoundFrontEnd = new SoundFrontEnd();
 
-	@:noCompletion static function get_width() {
+	@:noCompletion
+	static inline function get_width() {
 		return getScreenWidth();
 	}
 
-	@:noCompletion static function get_height() {
+	@:noCompletion
+	static inline function get_height() {
 		return getScreenHeight();
 	}
 
 	@:noCompletion
-	static function get_elapsed() {
+	static inline function get_elapsed() {
 		return getFrameTime();
 	}
 
 	@:allow(flixel.FlxGame.new) static function init(game:FlxGame, width:Int, height:Int) {
+		Log.trace = (v:Dynamic, ?infos:PosInfos) -> untyped __cpp__("std::cout << {0}", '${Log.formatOutput(v, infos)}\n');
 		initialWidth = width;
 		initialHeight = height;
 		cameras.reset();

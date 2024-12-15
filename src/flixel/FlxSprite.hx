@@ -12,6 +12,8 @@ class FlxSprite extends FlxObject {
 
 	public var color:Color = Colors.WHITE;
 
+	public var alpha(default, set):Float = 1.0;
+
 	public function new(x:Float = 0, y:Float = 0, ?graphic:String) {
 		super(x, y);
 		if (graphic != null) {
@@ -29,8 +31,15 @@ class FlxSprite extends FlxObject {
 		return this;
 	}
 
+	public inline function isOnScreen():Bool {
+		return !((y + height < 0 || y > FlxG.height) || (x + width < 0 || x > FlxG.width));
+	}
+
 	override public function draw() {
 		super.draw();
+		if (!visible || alpha < 0.001 || !camera.visible || !isOnScreen()){
+			return;
+		}
 		drawTexturePro(texture, Rectangle.create(0, 0, texture.width, texture.height),
 			Rectangle.create((texture.width / 2) + x, (texture.height / 2) + y, texture.width, texture.height),
 			Vector2.create(texture.width / 2, texture.height / 2), angle, color);
@@ -57,5 +66,10 @@ class FlxSprite extends FlxObject {
 	override function set_height(value:Float) {
 		texture.height = Std.int(value);
 		return super.set_height(value);
+	}
+
+	@:noCompletion
+	inline function set_alpha(value:Float):Float {
+		return alpha = value = color.a = Std.int(value * 255);
 	}
 }
