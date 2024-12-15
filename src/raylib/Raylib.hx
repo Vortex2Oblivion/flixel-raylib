@@ -701,6 +701,9 @@ extern class Raylib {
 	@:native("UnloadTexture")
 	public static function unloadTexture(texture:Texture2D):Void;
 
+	@:native("SetTextureFilter")
+	public static function setTextureFilter(texture:Texture2D, filter:TextureFilter):Void;
+
 	@:native("LoadRenderTexture")
 	public static function loadRenderTexture(width:Int, height:Int):RenderTexture2D;
 

@@ -1,5 +1,6 @@
 package flixel.text;
 
+import raylib.TextureFilter;
 import flixel.FlxSprite;
 import raylib.Font;
 import raylib.Vector2;
@@ -34,14 +35,38 @@ class FlxText extends FlxSprite {
 	@:noCompletion function set_font(font:String):String {
         unloadFont(_font);
 		_font = loadFont(font);
+		// reapply antialiasing after generating a new font.
+		set_antialiasing(antialiasing);
+		set_antialiasingLevel(antialiasingLevel);
 		return this.font = font;
 	}
 
-	@:noCompletion override function get_width():Float {
+	@:noCompletion 
+	override function get_width():Float {
 		return measureTextEx(_font, text, size, letterSpacing).x;
 	}
 
-	@:noCompletion override function get_height():Float {
+	@:noCompletion 
+	override function get_height():Float {
 		return measureTextEx(_font, text, size, letterSpacing).y;
+	}
+
+	@:noCompletion
+	override function set_antialiasing(value:Bool):Bool {
+		if (value) {
+			setTextureFilter(_font.texture, antialiasingLevel);
+		} else {
+			setTextureFilter(_font.texture, TEXTURE_FILTER_POINT);
+		}
+		setTextureFilter(getFontDefault().texture, TEXTURE_FILTER_POINT); // reset default font
+		return antialiasing = value;
+	}
+
+	@:noCompletion
+	override function set_antialiasingLevel(value:TextureFilter):TextureFilter {
+		if(antialiasing){
+			setTextureFilter(_font.texture, value);
+		}
+		return antialiasingLevel = value;
 	}
 }

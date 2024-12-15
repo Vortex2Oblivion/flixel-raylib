@@ -13,6 +13,7 @@ class OtherState extends FlxState {
         maurice = new FlxSprite();
         maurice.loadGraphic("images/maurice.png");
         maurice.screenCenter();
+        maurice.antialiasing = true;
         add(maurice);
     }
     override public function update(elapsed:Float) {

@@ -8,7 +8,7 @@ extern class Font {
 	public var glyphCount:Int;
 	public var glyphPadding:Int;
 
-	public var texure:Texture2D;
+	public var texture:Texture2D;
 
 	public var recs:Star<Rectangle>;
 

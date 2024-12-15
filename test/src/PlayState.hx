@@ -1,9 +1,7 @@
 package;
 
-import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxState;
-import flixel.FlxObject;
 import flixel.FlxSprite;
 import raylib.RayMath;
 import raylib.Raylib;
@@ -24,6 +22,7 @@ class PlayState extends FlxState {
 		scythe.loadGraphic("images/scythe.png");
 		scythe.width *= 0.25;
 		scythe.height *= 0.25;
+		scythe.antialiasing = true;
 		add(scythe);
 	}
 
