@@ -29,11 +29,13 @@ class FlxSprite extends FlxObject {
 	}
 
 	public inline overload extern function loadGraphic(graphic:String):FlxSprite {
+		unloadTexture(texture);
 		texture = loadTexture(graphic);
 		return this;
 	}
 
 	public inline overload extern function loadGraphic(image:Image):FlxSprite {
+		unloadTexture(texture);
 		texture = loadTextureFromImage(image);
 		return this;
 	}
@@ -65,11 +67,13 @@ class FlxSprite extends FlxObject {
 		return texture;
 	}
 
+	@:noCompletion
 	override function set_width(value:Float) {
 		texture.width = Std.int(value);
 		return super.set_width(value);
 	}
 
+	@:noCompletion
 	override function set_height(value:Float) {
 		texture.height = Std.int(value);
 		return super.set_height(value);
