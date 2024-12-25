@@ -18,6 +18,7 @@ class FlxSound extends FlxBasic {
 	public var persist:Bool;
 
 	public function loadEmbedded(embeddedSound:ConstCharStar):FlxSound {
+        unloadMusicStream(music);
 		music = loadMusicStream(embeddedSound);
 		return this;
 	}
