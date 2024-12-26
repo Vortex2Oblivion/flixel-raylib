@@ -21,5 +21,6 @@ jobs:
       - name: Compiling 
         run: |
           haxelib git flixel-raylib https://github.com/Vortex2Oblivion/flixel-raylib
+          ./build_ndlls.bat
           cd test
           haxe build.hxml
