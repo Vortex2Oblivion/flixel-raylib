@@ -57,4 +57,7 @@
             <flag value="OpenGL" />
         </target>
     </section>
+
+
+    <copyFile name="memory.ndll" from="${haxelib:flixel-raylib}/ndlls/memory/bin/Windows64" toolId="exe" />
 </xml>

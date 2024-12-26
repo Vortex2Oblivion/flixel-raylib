@@ -1,5 +1,9 @@
 test/bin/cpp/*
 .vscode/
 .zed/
+
+ndlls/*/bin
+ndlls/*/obj
+
 !test/bin/cpp/images/
 !test/bin/cpp/sound/

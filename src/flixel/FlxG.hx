@@ -1,5 +1,6 @@
 package flixel;
 
+import flixel.util.FlxMemory;
 import flixel.FlxCamera;
 import flixel.system.frontEnds.CameraFrontEnd;
 import flixel.system.frontEnds.SoundFrontEnd;
@@ -41,8 +42,10 @@ class FlxG {
 		return getFrameTime();
 	}
 
-	@:allow(flixel.FlxGame.new) static function init(game:FlxGame, width:Int, height:Int) {
+	@:allow(flixel.FlxGame.new) 
+	static function init(game:FlxGame, width:Int, height:Int) {
 		Log.trace = (v:Dynamic, ?infos:PosInfos) -> untyped __cpp__("std::cout << {0}", '${Log.formatOutput(v, infos)}\n');
+		FlxMemory.init();
 		initialWidth = width;
 		initialHeight = height;
 		cameras.reset();

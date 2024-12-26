@@ -1,12 +1,24 @@
 {
-    "name": "flixel-raylib",
-    "url" : "https://github.com/Vortex2Oblivion/flixel-raylib",
-    "license": "MIT",
-    "tags": ["flixel", "haxeflixel", "bindings", "raylib", "game", "development"],
-    "description": "Rewrite of flixel with a raylib backend.",
-    "version": "1.0.0",
-    "releasenote": "",
-    "contributors": ["Vortex"],
-    "dependencies": {"hxcpp": ""},
-    "classPath": "src"
-  }
+  "name": "flixel-raylib",
+  "url": "https://github.com/Vortex2Oblivion/flixel-raylib",
+  "license": "MIT",
+  "tags": [
+    "flixel",
+    "haxeflixel",
+    "bindings",
+    "raylib",
+    "game",
+    "development"
+  ],
+  "description": "Rewrite of flixel with a raylib backend.",
+  "version": "1.0.0",
+  "releasenote": "",
+  "contributors": [
+    "Vortex"
+  ],
+  "dependencies": {
+    "hxcpp": "",
+    "lime": ""
+  },
+  "classPath": "src"
+}
