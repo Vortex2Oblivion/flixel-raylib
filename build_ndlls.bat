@@ -1,1 +1,1 @@
-lime rebuild ndlls/memory windows
+haxelib run lime rebuild ndlls/memory windows
