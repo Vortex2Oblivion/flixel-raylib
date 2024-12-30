@@ -16,6 +16,7 @@ class OtherState extends FlxState {
         maurice.antialiasing = true;
         add(maurice);
     }
+    
     override public function update(elapsed:Float) {
         super.update(elapsed);
         bgColor = Raylib.colorFromHSV(Raylib.getTime() * 100, 1, 1);
