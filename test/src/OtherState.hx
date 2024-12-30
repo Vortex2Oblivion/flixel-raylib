@@ -20,7 +20,7 @@ class OtherState extends FlxState {
         super.update(elapsed);
         bgColor = Raylib.colorFromHSV(Raylib.getTime() * 100, 1, 1);
         maurice.angle  = Math.sin(Raylib.getTime()) * 10;
-        if (Raylib.isKeyPressed(32)) {
+        if (Raylib.isKeyPressed(KEY_SPACE)) {
 			FlxG.switchState(new SoundState());
 		}
     }

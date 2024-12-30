@@ -1,9 +1,9 @@
-test/bin/cpp/*
+test/bin/*
 .vscode/
 .zed/
 
 ndlls/*/bin
 ndlls/*/obj
 
-!test/bin/cpp/images/
-!test/bin/cpp/sound/
+!test/bin/images/
+!test/bin/sound/

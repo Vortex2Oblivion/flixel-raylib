@@ -13,7 +13,6 @@ class TextState extends FlxState {
         text = new FlxText(0, 0, "This is FlxText!", 32);
         text.screenCenter();
         text.antialiasing = true;
-        text.font = "dumbnerd.ttf";
         add(text);
     }
 
@@ -21,7 +20,7 @@ class TextState extends FlxState {
         super.update(elapsed);
         text.size  = Math.sin(Raylib.getTime()) * 10 + 32;
 
-        if(Raylib.isKeyPressed(32)) {
+        if(Raylib.isKeyPressed(KEY_SPACE)) {
             text.antialiasingLevel = TEXTURE_FILTER_ANISOTROPIC_16X;
         }
     }

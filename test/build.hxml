@@ -1,8 +1,7 @@
 -cp src
 -D analyzer-optimize
 -main Main
---cpp bin/cpp
+--cpp bin
 --library flixel-raylib
 --cmd cd bin
---cmd cd cpp
 --cmd main.exe

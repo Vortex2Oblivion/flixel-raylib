@@ -852,6 +852,15 @@ extern class Raylib {
 	@:native("SetConfigFlags")
 	public static function setConfigFlags(flags:ConfigFlags):Void;
 
+	@:native("OpenURL")
+	public static function openURL(url:ConstCharStar):Void;
+
+	@:native("TraceLog")
+	public static function traceLog(logLevel:TraceLogLevel, text:ConstCharStar):Void;
+
+	@:native("SetTraceLogLevel")
+	public static function setTraceLogLevel(logLevel:TraceLogLevel):Void;
+
 	@:native("IsKeyPressed")
 	public static function isKeyPressed(key:KeyboardKey):Bool;
 

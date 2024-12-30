@@ -1,12 +1,15 @@
 package flixel;
 
+import cpp.Lib;
 import flixel.util.FlxStringUtil;
-import flixel.util.FlxMemory;
+import flixel.system.FlxMemory;
 import raylib.Colors;
-//import external.memory.Memory;
 
 class FlxGame {
 	public function new(gameWidth:Int = 0, gameHeight:Int = 0, initialState:FlxState, updateFramerate:Int = 60) {
+		#if !debug
+		setTraceLogLevel(LOG_NONE);
+		#end
 		initWindow(gameWidth, gameHeight, "FlxProject");
 		initAudioDevice();
 		setTargetFPS(updateFramerate);
@@ -34,6 +37,7 @@ class FlxGame {
 			endDrawing();
 		}
 		closeAudioDevice();
+		traceLog(LOG_INFO, 'Unloaded ${Lib.unloadAllLibraries()} libraries.');
 		closeWindow();
 	}
 }
