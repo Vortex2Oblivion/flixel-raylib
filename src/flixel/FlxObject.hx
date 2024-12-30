@@ -46,16 +46,16 @@ class FlxObject extends FlxBasic {
 
 	@:noCompletion
 	inline function initVars() {
-		scrollFactor = FlxPoint.create(1, 1);
+		scrollFactor = new FlxPoint(1, 1);
 		initMotionVars();
 	}
 
 	@:noCompletion
 	inline function initMotionVars() {
-		velocity = FlxPoint.create();
-		acceleration = FlxPoint.create();
-		drag = FlxPoint.create();
-		maxVelocity = FlxPoint.create(10000, 10000);
+		velocity = new FlxPoint();
+		acceleration = new FlxPoint();
+		drag = new FlxPoint();
+		maxVelocity = new FlxPoint(10000, 10000);
 	}
 
 	public function screenCenter(axes:FlxAxes = XY):FlxObject {
