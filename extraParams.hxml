@@ -1,1 +1,2 @@
 --macro raylib.macros.GlobalMetadata.run()
+-D no_console
