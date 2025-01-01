@@ -17,8 +17,7 @@
     "Vortex"
   ],
   "dependencies": {
-    "hxcpp": "",
-    "lime": ""
+    "hxcpp": ""
   },
   "classPath": "src"
 }

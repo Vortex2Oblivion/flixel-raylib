@@ -1,2 +1,2 @@
 --macro raylib.macros.GlobalMetadata.run()
--D no_console
+--define no_console

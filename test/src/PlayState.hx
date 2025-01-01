@@ -18,6 +18,7 @@ class PlayState extends FlxState {
 		skateboard = new FlxSprite();
 		skateboard.loadGraphic("images/skateboard.png");
 		skateboard.velocity.x = 15;
+		skateboard.antialiasing = true;
 		add(skateboard);
 
 		scythe = new FlxSprite();
