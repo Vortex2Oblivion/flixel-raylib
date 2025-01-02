@@ -21,6 +21,7 @@ jobs:
       - name: Compiling 
         run: |
           haxelib git flixel-raylib https://github.com/Vortex2Oblivion/flixel-raylib
-          ./build_ndlls.bat
+          haxelib install lime
+          haxelib run lime rebuild ndlls/memory windows
           cd test
           haxe build.hxml
