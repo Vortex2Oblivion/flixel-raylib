@@ -1,4 +1,2 @@
 haxelib install lime
-cd ndlls
-cd memory
-haxelib run lime rebuild . windows
+haxelib run lime rebuild ndlls/memory windows
