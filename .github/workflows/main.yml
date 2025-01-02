@@ -18,10 +18,12 @@ jobs:
         with:
           haxe-version: 4.3.6
 
-      - name: Compiling 
+      - name: Compiling Ndlls
         run: |
           haxelib git flixel-raylib https://github.com/Vortex2Oblivion/flixel-raylib
           haxelib install lime
           haxelib run lime rebuild ndlls/memory windows
+      - name: Compile Test Project
+        run: |
           cd test
           haxe build.hxml
