@@ -1,0 +1,30 @@
+<xml>
+	<!-- TO EDIT THE NAME OF THE NDLL EDIT THIS -->
+	<set name="NDLL_NAME" value="memory"/>
+
+	<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
+
+	<files id="common">
+		<compilerflag value="-Iinclude"/>
+
+		<file name="common/ExternalInterface.cpp"/>
+	</files>
+
+	<set name="SLIBEXT" value=".lib" if="windows"/>
+	<set name="SLIBEXT" value=".a" unless="windows"/>
+	<set name="SLIBEXT" value=".so" if="webos"/>
+
+	<set name="DEBUGEXTRA" value="-debug" if="fulldebug" />
+
+	<!-- prefix = ${LIBPREFIX} -->
+	<!-- suffix = ${MSVC_LIB_VERSION}${DEBUGEXTRA}${LIBEXTRA} -->
+	<target id="NDLL" output="memory" tool="linker" toolid="${STD_MODULE_LINK}">
+		<outdir name="../ndll/${BINDIR}"/>
+		<ext value=".ndll" if="windows || mac || linux"/>
+		<files id="common"/>
+	</target>
+
+	<target id="default">
+		<target id="NDLL"/>
+	</target>
+</xml>
