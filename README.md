@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="assets/logo.png" width="256" />
+    <img src="assets/images/logo.png" width="256" />
 </p>
 <p align="center">  
     <img src="https://img.shields.io/github/repo-size/Vortex2Oblivion/flixel-raylib" />
