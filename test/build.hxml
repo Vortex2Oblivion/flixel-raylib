@@ -6,5 +6,3 @@
 --cpp bin
 
 --library flixel-raylib
---cmd cd bin
---cmd main.exe

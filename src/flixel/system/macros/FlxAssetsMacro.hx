@@ -23,7 +23,7 @@ class FlxAssetsMacro {
 
 	public static function moveFiles(start:String, destination:String) {
 		if (!FileSystem.exists(start)) {
-			trace('Source directory does not exist');
+			trace('Source directory "$start" does not exist');
 			return;
 		}
 
