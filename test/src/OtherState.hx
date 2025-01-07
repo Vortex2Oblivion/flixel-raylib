@@ -11,7 +11,7 @@ class OtherState extends FlxState {
     override public function create() {
         super.create();
         maurice = new FlxSprite();
-        maurice.loadGraphic("images/maurice.png");
+        maurice.loadGraphic("assets/images/maurice.png");
         maurice.screenCenter();
         maurice.antialiasing = true;
         add(maurice);

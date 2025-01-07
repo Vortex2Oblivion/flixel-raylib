@@ -1,7 +1,10 @@
--cp src
--D analyzer-optimize
--main Main
+--class-path src
+--main Main
+
+--define assetsPath=assets
+
 --cpp bin
+
 --library flixel-raylib
 --cmd cd bin
 --cmd main.exe

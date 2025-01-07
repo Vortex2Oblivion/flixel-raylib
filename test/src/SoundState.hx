@@ -11,7 +11,7 @@ class SoundState extends FlxState {
 	override public function create() {
 		super.create();
 		sound = FlxG.sound.list.add(new FlxSound());
-		sound.loadEmbedded("sound/BICYCLE KICK - CYBERVORTEX PHIGHTING OST - aidn.wav");
+		sound.loadEmbedded("assets/sounds/BICYCLE KICK - CYBERVORTEX PHIGHTING OST - aidn.wav");
 		sound.play();
 	}
 

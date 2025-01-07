@@ -2,8 +2,5 @@ test/bin/*
 .vscode/
 .zed/
 
-ndlls/*/bin
+ndlls/*/bin/*/*.hash
 ndlls/*/obj
-
-!test/bin/images/
-!test/bin/sound/

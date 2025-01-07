@@ -34,7 +34,6 @@ class FlxG {
 		cameras.reset();
 		sound.destroy(true);
 		state?.destroy();
-		state = null;
 		state = nextState;
 		nextState.create();
 	}

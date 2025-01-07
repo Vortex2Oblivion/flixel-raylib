@@ -1,2 +1,4 @@
 --macro raylib.macros.GlobalMetadata.run()
+--macro flixel.system.macros.FlxAssetsMacro.run()
 --define no_console
+--define message.reporting=pretty

@@ -4,7 +4,6 @@ import flixel.math.FlxMath;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSprite;
-import raylib.RayMath;
 import raylib.Raylib;
 
 class PlayState extends FlxState {
@@ -16,13 +15,13 @@ class PlayState extends FlxState {
 		super.create();
 
 		skateboard = new FlxSprite();
-		skateboard.loadGraphic("images/skateboard.png");
+		skateboard.loadGraphic("assets/images/skateboard.png");
 		skateboard.velocity.x = 15;
 		skateboard.antialiasing = true;
 		add(skateboard);
 
 		scythe = new FlxSprite();
-		scythe.loadGraphic("images/scythe.png");
+		scythe.loadGraphic("assets/images/scythe.png");
 		scythe.width *= 0.25;
 		scythe.height *= 0.25;
 		scythe.antialiasing = true;

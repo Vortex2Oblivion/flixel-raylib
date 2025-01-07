@@ -1,5 +1,6 @@
 package flixel;
 
+import sys.FileSystem;
 import raylib.TextureFilter;
 import raylib.Color;
 import raylib.Colors;
@@ -21,16 +22,17 @@ class FlxSprite extends FlxObject {
 
 	public var antialiasingLevel(default, set):TextureFilter = TEXTURE_FILTER_BILINEAR;
 
+	public static var defaultGraphic:String = "assets/images/logo16.png";
+
 	public function new(x:Float = 0, y:Float = 0, ?graphic:String) {
 		super(x, y);
-		if (graphic != null) {
-			loadGraphic(graphic);
-		}
+		loadGraphic(defaultGraphic);
 	}
+	
 
 	public inline overload extern function loadGraphic(graphic:String):FlxSprite {
 		unloadTexture(texture);
-		texture = loadTexture(graphic);
+		texture = loadTexture(FileSystem.exists(graphic) ? graphic : defaultGraphic);
 		return this;
 	}
 

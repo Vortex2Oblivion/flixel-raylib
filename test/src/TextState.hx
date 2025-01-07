@@ -12,16 +12,12 @@ class TextState extends FlxState {
 
         text = new FlxText(0, 0, "This is FlxText!", 32);
         text.screenCenter();
-        text.antialiasing = true;
         add(text);
     }
 
     override public function update(elapsed:Float) {
         super.update(elapsed);
         text.size  = Math.sin(Raylib.getTime()) * 10 + 32;
-
-        if(Raylib.isKeyPressed(KEY_SPACE)) {
-            text.antialiasingLevel = TEXTURE_FILTER_ANISOTROPIC_16X;
-        }
+        text.screenCenter();
     }
 }

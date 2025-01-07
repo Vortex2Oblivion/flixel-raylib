@@ -1,5 +1,6 @@
 package flixel.text;
 
+import sys.FileSystem;
 import raylib.TextureFilter;
 import flixel.FlxSprite;
 import raylib.Font;
@@ -21,7 +22,7 @@ class FlxText extends FlxSprite {
 		this.text = text;
 		this.size = size;
 		this.letterSpacing = 1;
-        this._font = getFontDefault();
+        this._font = FileSystem.exists("assets/fonts/nokiafc22.ttf") ? loadFont("assets/fonts/nokiafc22.ttf") : getFontDefault();
 	}
 
     override public function destroy() {
