@@ -1,4 +1,4 @@
 cd test
 haxe build.hxml
-cd bin
+cd export
 Main.exe

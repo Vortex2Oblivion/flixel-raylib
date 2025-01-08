@@ -1,4 +1,4 @@
-test/bin/*
+test/export/*
 .vscode/
 .zed/
 

@@ -3,6 +3,6 @@
 
 --define assetsPath=assets
 
---cpp bin
+--cpp export
 
 --library flixel-raylib

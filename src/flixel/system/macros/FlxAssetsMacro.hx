@@ -15,13 +15,13 @@ class FlxAssetsMacro {
 		var outputFolder:String = '${Compiler.getOutput()}/$assetsPath/';
 		process.close();
         
-        moveFiles('$libPath/assets', outputFolder);
-		moveFiles(assetsPath, outputFolder);
+        copyFiles('$libPath/assets', outputFolder);
+		copyFiles(assetsPath, outputFolder);
 
 		return macro a;
 	}
 
-	public static function moveFiles(start:String, destination:String) {
+	public static function copyFiles(start:String, destination:String) {
 		if (!FileSystem.exists(start)) {
 			trace('Source directory "$start" does not exist');
 			return;
@@ -36,7 +36,7 @@ class FlxAssetsMacro {
 			var destPath:String = '$destination/$file';
 
 			if (FileSystem.isDirectory(filePath)) {
-				moveFiles(filePath, destPath);
+				copyFiles(filePath, destPath);
 			} else {
 				File.copy(filePath, destPath);
 			}
