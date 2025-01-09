@@ -17,15 +17,15 @@ class SoundState extends FlxState {
 
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
-		if (Raylib.isKeyPressed(KEY_SPACE)) {
+		if (FlxG.keys.justPressed.SPACE) {
 			FlxG.switchState(new TextState());
 		}
 
-		if (Raylib.isKeyDown(KEY_LEFT)) {
+		if (FlxG.keys.pressed.LEFT) {
 			sound.pitch -= elapsed;
 		}
 
-		if (Raylib.isKeyDown(KEY_RIGHT)) {
+		if (FlxG.keys.pressed.RIGHT) {
 			sound.pitch += elapsed;
 		}
 

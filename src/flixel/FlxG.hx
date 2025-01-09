@@ -1,5 +1,6 @@
 package flixel;
 
+import flixel.input.FlxKeyManager;
 import raylib.Raylib;
 import flixel.system.FlxMemory;
 import flixel.FlxCamera;
@@ -30,6 +31,8 @@ class FlxG {
 
 	public static var sound(default, null):SoundFrontEnd = new SoundFrontEnd();
 
+	public static var keys(default, null):FlxKeyManager;
+
 	public static function switchState(nextState:FlxState):Void {
 		cameras.reset();
 		sound.destroy(true);
@@ -57,6 +60,8 @@ class FlxG {
 		initialWidth = width;
 		initialHeight = height;
 		cameras.reset();
+
+		keys = new FlxKeyManager();
 	}
 
 	@:noCompletion
