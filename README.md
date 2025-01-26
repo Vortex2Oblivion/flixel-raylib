@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/github/repo-size/Vortex2Oblivion/flixel-raylib" />
     <img src="https://github.com/Vortex2Oblivion/flixel-raylib/actions/workflows/main.yml/badge.svg" />
     <img src="https://badgen.net/github/open-issues/Vortex2Oblivion/flixel-raylib" />
-    <img src="https://badgen.net/badge/license/MIT/gree" />
+    <img src="https://badgen.net/badge/license/MIT/green" />
 </p>
 
 ### What is this?
