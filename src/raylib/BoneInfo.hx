@@ -1,9 +1,9 @@
 package raylib;
 
-import cpp.CastCharStar;
+import cpp.ConstCharStar;
 
 @:native("BoneInfo")
 extern class BoneInfo {
-	public var name:CastCharStar;
+	public var name:ConstCharStar;
 	public var parent:Int;
 }
