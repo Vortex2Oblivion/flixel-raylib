@@ -21,7 +21,6 @@ jobs:
       - name: Compile Test Project
         run: |
           haxelib git flixel-raylib https://github.com/Vortex2Oblivion/flixel-raylib
-          ./build_ndlls.bat
           cd test
           haxe build.hxml
 
@@ -42,7 +41,5 @@ jobs:
         run: |
           sudo apt install libasound2-dev libx11-dev libxrandr-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxcursor-dev libxinerama-dev libwayland-dev libxkbcommon-dev
           haxelib git flixel-raylib https://github.com/Vortex2Oblivion/flixel-raylib
-          chmod +x ./build_ndlls.sh
-          ./build_ndlls.sh
           cd test
           haxe build.hxml
