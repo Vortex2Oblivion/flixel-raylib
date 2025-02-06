@@ -2,7 +2,7 @@
     <pragma once="true" />
     <set name="raylib_folder" value="${haxelib:flixel-raylib}/include" />
     <section>
-        
+
         <files id="__main__">
             <compilerflag value="-I${raylib_folder}" />
             <compilerflag value="-I${raylib_folder}/external/glfw/include" />
@@ -33,21 +33,18 @@
             <compilerflag value="-D_GLFW_COCOA" />
         </files>
 
-        <!-- LINUX COMPILER -->
         <files id="haxe" if="linux">
             <compilerflag value="-DPLATFORM_DESKTOP" />
             <compilerflag value="-D_GLFW_X11" />
             <compilerflag value="-D_GNU_SOURCE" />
         </files>
 
-        <!-- WINDOWS LINKER -->
         <target id="haxe" tool="linker" toolid="exe" if="windows">
             <lib name="Winmm.lib" />
             <lib name="Gdi32.lib" />
             <lib name="Shell32.lib" />
         </target>
 
-        <!-- OSX LINKER -->
         <target id="haxe" tool="linker" if="macos">
             <flag value="-framework" />
             <flag value="IOKit" />
@@ -58,6 +55,37 @@
         </target>
     </section>
 
+    <section if="linux">
+        <section if="PLATFORM_DESKTOP_GLFW">
+            <lib name="-lGL" />
+            <lib name="-lpthread" />
+            <lib name="-lm" />
+            <lib name="-ldl" />
+            <lib name="-lrt" />
+            <lib name="-lX11" unless="RAYLIB_WAYLAND_DISPLAY" />
 
-    <copyFile name="memory.ndll" from="${haxelib:flixel-raylib}/ndlls/memory/bin/Windows64" overwrite="true" />
+            <section if="RAYLIB_WAYLAND_DISPLAY">
+                <lib name="-lwayland-client" />
+                <lib name="-lwayland-cursor" />
+                <lib name="-lwayland-egl" />
+                <lib name="-lxkbcommon" />
+            </section>
+        </section>
+
+        <section if="PLATFORM_DESKTOP_RGFW">
+            <lib name="-lGL" />
+            <lib name="-lX11" />
+            <lib name="-lXrandr" />
+            <lib name="-lXinerama" />
+            <lib name="-lXi" />
+            <lib name="-lXcursor" />
+            <lib name="-lpthread" />
+            <lib name="-lm" />
+            <lib name="-lrt" />
+        </section>
+    </section>
+    <copyFile name="memory.ndll" from="${haxelib:flixel-raylib}/ndlls/memory/bin/Windows64"
+        overwrite="true" if="windows" />
+    <copyFile name="memory.ndll" from="${haxelib:flixel-raylib}/ndlls/memory/bin/Linux64"
+        overwrite="true" if="linux" />
 </xml>

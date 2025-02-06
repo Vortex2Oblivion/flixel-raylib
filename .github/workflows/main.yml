@@ -21,5 +21,27 @@ jobs:
       - name: Compile Test Project
         run: |
           haxelib git flixel-raylib https://github.com/Vortex2Oblivion/flixel-raylib
+          ./build_ndlls.bat
+          cd test
+          haxe build.hxml
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+        with:
+          submodules: true
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: 4.3.6
+
+      - name: Compile Test Project
+        run: |
+          sudo apt install libasound2-dev libx11-dev libxrandr-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxcursor-dev libxinerama-dev libwayland-dev libxkbcommon-dev
+          haxelib git flixel-raylib https://github.com/Vortex2Oblivion/flixel-raylib
+          ./build_ndlls.sh
           cd test
           haxe build.hxml

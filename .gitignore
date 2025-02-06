@@ -2,5 +2,5 @@ test/export/*
 .vscode/
 .zed/
 
-ndlls/*/bin/*/*.hash
+ndlls/*/bin
 ndlls/*/obj

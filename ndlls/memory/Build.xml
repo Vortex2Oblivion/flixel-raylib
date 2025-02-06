@@ -19,7 +19,7 @@
 	<!-- prefix = ${LIBPREFIX} -->
 	<!-- suffix = ${MSVC_LIB_VERSION}${DEBUGEXTRA}${LIBEXTRA} -->
 	<target id="NDLL" output="memory" tool="linker" toolid="${STD_MODULE_LINK}">
-		<outdir name="../bin/${BINDIR}"/>
+		<outdir name="bin/${BINDIR}"/>
 		<ext value=".ndll" if="windows || mac || linux"/>
 		<files id="common"/>
 	</target>
