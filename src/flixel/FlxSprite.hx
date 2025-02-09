@@ -1,5 +1,6 @@
 package flixel;
 
+import flixel.math.FlxPoint;
 import flixel.animation.FlxAnimation;
 import sys.FileSystem;
 import raylib.TextureFilter;
@@ -27,8 +28,11 @@ class FlxSprite extends FlxObject {
 
 	public var animation:FlxAnimation;
 
+	public var origin:FlxPoint;
+
 	public function new(x:Float = 0, y:Float = 0, ?graphic:String) {
 		super(x, y);
+		origin = new FlxPoint();
 		loadGraphic(defaultGraphic);
 	}
 	
@@ -55,7 +59,7 @@ class FlxSprite extends FlxObject {
 		}
 		drawTexturePro(texture, Rectangle.create(animation.x, animation.y, width, height),
 			Rectangle.create((texture.width / 2) + x - animation.offsetX, (texture.height / 2) + y - animation.offsetY, width, height),
-			Vector2.create(texture.width / 2, texture.height / 2), angle, color);
+			origin, angle, color);
 	}
 
 	override public function destroy() {
@@ -69,6 +73,8 @@ class FlxSprite extends FlxObject {
 		width = texture.width;
 		height = texture.height;
 		animation = new FlxAnimation(texture.width, texture.height);
+		origin.x = texture.width / 2;
+		origin.y = texture.height / 2;
 		return texture;
 	}
 
