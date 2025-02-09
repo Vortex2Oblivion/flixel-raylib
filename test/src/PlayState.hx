@@ -20,8 +20,17 @@ class PlayState extends FlxState {
 		add(bf);
 	}
 
+	var framesCounter:Int = 0;
+
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
+		framesCounter++;
+
+        if (framesCounter >= (FlxG.frameRate/24))
+        {
+            framesCounter = 0;
+            bf.animation.frame++;
+        }
 		if(FlxG.keys.pressed.RIGHT){
 			bf.animation.frame++;
 		}

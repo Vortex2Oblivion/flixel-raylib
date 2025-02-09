@@ -15,6 +15,8 @@ using StringTools;
 class FlxG {
 	public static var elapsed(get, null):Float;
 
+	public static var frameRate(get, never):Int;
+
 	public static var state(default, null):FlxState;
 
 	public static var width(get, null):Int;
@@ -77,5 +79,10 @@ class FlxG {
 	@:noCompletion
 	static inline function get_elapsed() {
 		return getFrameTime();
+	}
+
+	@:noCompletion
+	static inline function get_frameRate():Int {
+		return getFPS();
 	}
 }

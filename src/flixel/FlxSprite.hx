@@ -54,7 +54,7 @@ class FlxSprite extends FlxObject {
 			return;
 		}
 		drawTexturePro(texture, Rectangle.create(animation.x, animation.y, width, height),
-			Rectangle.create((texture.width / 2) + x, (texture.height / 2) + y, width, height),
+			Rectangle.create((texture.width / 2) + x - animation.offsetX, (texture.height / 2) + y - animation.offsetY, width, height),
 			Vector2.create(texture.width / 2, texture.height / 2), angle, color);
 	}
 
