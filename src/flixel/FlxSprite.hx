@@ -1,5 +1,6 @@
 package flixel;
 
+import flixel.animation.FlxAnimation;
 import sys.FileSystem;
 import raylib.TextureFilter;
 import raylib.Color;
@@ -24,6 +25,8 @@ class FlxSprite extends FlxObject {
 
 	public static var defaultGraphic:String = "assets/images/logo16.png";
 
+	public var animation:FlxAnimation;
+
 	public function new(x:Float = 0, y:Float = 0, ?graphic:String) {
 		super(x, y);
 		loadGraphic(defaultGraphic);
@@ -47,12 +50,11 @@ class FlxSprite extends FlxObject {
 	}
 
 	override public function draw() {
-		super.draw();
 		if (!visible || alpha < 0.001 || !camera.visible || !isOnScreen()) {
 			return;
 		}
-		drawTexturePro(texture, Rectangle.create(0, 0, texture.width, texture.height),
-			Rectangle.create((texture.width / 2) + x, (texture.height / 2) + y, texture.width, texture.height),
+		drawTexturePro(texture, Rectangle.create(animation.x, animation.y, width, height),
+			Rectangle.create((texture.width / 2) + x, (texture.height / 2) + y, width, height),
 			Vector2.create(texture.width / 2, texture.height / 2), angle, color);
 	}
 
@@ -66,6 +68,7 @@ class FlxSprite extends FlxObject {
 		this.texture = texture;
 		width = texture.width;
 		height = texture.height;
+		animation = new FlxAnimation(texture.width, texture.height);
 		return texture;
 	}
 
@@ -79,6 +82,16 @@ class FlxSprite extends FlxObject {
 	override function set_height(value:Float) {
 		texture.height = Std.int(value);
 		return super.set_height(value);
+	}
+
+	@:noCompletion
+	override function get_width() {
+		return animation.width;
+	}
+
+	@:noCompletion
+	override function get_height() {
+		return animation.height;
 	}
 
 	@:noCompletion

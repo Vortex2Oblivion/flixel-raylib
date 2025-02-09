@@ -7,35 +7,26 @@ import flixel.FlxSprite;
 import raylib.Raylib;
 
 class PlayState extends FlxState {
-	var skateboard:FlxSprite;
-
-	var scythe:FlxSprite;
+	var bf:FlxSprite;
 
 	override public function create() {
 		super.create();
 
-		skateboard = new FlxSprite();
-		skateboard.loadGraphic("assets/images/skateboard.png");
-		skateboard.velocity.x = 15;
-		skateboard.antialiasing = true;
-		add(skateboard);
-
-		scythe = new FlxSprite();
-		scythe.loadGraphic("assets/images/scythe.png");
-		scythe.width *= 0.25;
-		scythe.height *= 0.25;
-		scythe.antialiasing = true;
-		add(scythe);
+		bf = new FlxSprite();
+		bf.loadGraphic("assets/images/BOYFRIEND.png");
+		bf.animation.loadSpriteSheet("assets/images/BOYFRIEND.xml");
+		bf.antialiasing = true;
+		bf.screenCenter();
+		add(bf);
 	}
 
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
-
-		scythe.x = FlxMath.lerp(scythe.x, Raylib.getMousePosition().x, elapsed * 10);
-		scythe.y = FlxMath.lerp(scythe.y, Raylib.getMousePosition().y, elapsed * 10);
-		
-		if (FlxG.keys.justPressed.SPACE) {
-			FlxG.switchState(new OtherState());
+		if(FlxG.keys.pressed.RIGHT){
+			bf.animation.frame++;
+		}
+		if(FlxG.keys.pressed.LEFT){
+			bf.animation.frame--;
 		}
 	}
 }
