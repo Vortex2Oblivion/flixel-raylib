@@ -6,6 +6,7 @@ import flixel.system.FlxMemory;
 import flixel.FlxCamera;
 import flixel.system.frontEnds.CameraFrontEnd;
 import flixel.system.frontEnds.SoundFrontEnd;
+import flixel.system.frontEnds.BitmapFrontEnd;
 import haxe.Log;
 import haxe.PosInfos;
 
@@ -32,6 +33,8 @@ class FlxG {
 	public static var cameras(default, null):CameraFrontEnd = new CameraFrontEnd();
 
 	public static var sound(default, null):SoundFrontEnd = new SoundFrontEnd();
+
+	public static var bitmap(default, null):BitmapFrontEnd = new BitmapFrontEnd();
 
 	public static var keys(default, null):FlxKeyManager;
 
@@ -61,6 +64,7 @@ class FlxG {
 		FlxMemory.init();
 		initialWidth = width;
 		initialHeight = height;
+		bitmap.reset();
 		cameras.reset();
 
 		keys = new FlxKeyManager();

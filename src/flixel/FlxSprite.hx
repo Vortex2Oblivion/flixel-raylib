@@ -37,15 +37,16 @@ class FlxSprite extends FlxObject {
 	}
 	
 
-	public inline overload extern function loadGraphic(graphic:String):FlxSprite {
+	public function loadGraphic(graphic:String):FlxSprite {
 		unloadTexture(texture);
-		texture = loadTexture(FileSystem.exists(graphic) ? graphic : defaultGraphic);
-		return this;
-	}
-
-	public inline overload extern function loadGraphic(image:Image):FlxSprite {
-		unloadTexture(texture);
-		texture = loadTextureFromImage(image);
+		var _graphic:String = FileSystem.exists(graphic) ? graphic : defaultGraphic;
+		if(FlxG.bitmap.cache.exists(_graphic)){
+			texture = FlxG.bitmap.cache.get(_graphic);
+		}
+		else{
+			texture = loadTexture(_graphic);
+			FlxG.bitmap.cache.set(_graphic, texture);
+		}
 		return this;
 	}
 
