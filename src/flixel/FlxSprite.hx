@@ -2,13 +2,10 @@ package flixel;
 
 import flixel.math.FlxPoint;
 import flixel.animation.FlxAnimation;
-import sys.FileSystem;
 import raylib.TextureFilter;
 import raylib.Color;
 import raylib.Colors;
-import raylib.Image;
 import raylib.Rectangle;
-import raylib.Vector2;
 import raylib.Texture;
 
 class FlxSprite extends FlxObject {
@@ -26,27 +23,21 @@ class FlxSprite extends FlxObject {
 
 	public static var defaultGraphic:String = "assets/images/logo16.png";
 
-	public var animation:FlxAnimation;
-
 	public var origin:FlxPoint;
+
+	public var scale:FlxPoint;
 
 	public function new(x:Float = 0, y:Float = 0, ?graphic:String) {
 		super(x, y);
 		origin = new FlxPoint();
+		scale = new FlxPoint(1, 1);
 		loadGraphic(defaultGraphic);
 	}
 	
 
 	public function loadGraphic(graphic:String):FlxSprite {
 		unloadTexture(texture);
-		var _graphic:String = FileSystem.exists(graphic) ? graphic : defaultGraphic;
-		if(FlxG.bitmap.cache.exists(_graphic)){
-			texture = FlxG.bitmap.cache.get(_graphic);
-		}
-		else{
-			texture = loadTexture(_graphic);
-			FlxG.bitmap.cache.set(_graphic, texture);
-		}
+		texture = loadTexture(graphic);
 		return this;
 	}
 
@@ -58,12 +49,13 @@ class FlxSprite extends FlxObject {
 		if (!visible || alpha < 0.001 || !camera.visible || !isOnScreen()) {
 			return;
 		}
-		drawTexturePro(texture, Rectangle.create(animation.x, animation.y, width, height),
-			Rectangle.create((texture.width / 2) + x - animation.offsetX, (texture.height / 2) + y - animation.offsetY, width, height),
-			origin, angle, color);
+		var source:Rectangle = Rectangle.create(0, 0, width, height);
+		var dest:Rectangle = Rectangle.create((width / 2) + x, (height / 2) + y, width * scale.x, height * scale.y);
+
+		drawTexturePro(texture, source, dest, origin * scale, angle, color);
 	}
 
-	override public function destroy() {
+override public function destroy() {
 		unloadTexture(texture);
 		super.destroy();
 	}
@@ -73,7 +65,6 @@ class FlxSprite extends FlxObject {
 		this.texture = texture;
 		width = texture.width;
 		height = texture.height;
-		animation = new FlxAnimation(texture.width, texture.height);
 		origin.x = texture.width / 2;
 		origin.y = texture.height / 2;
 		return texture;
@@ -93,12 +84,12 @@ class FlxSprite extends FlxObject {
 
 	@:noCompletion
 	override function get_width() {
-		return animation.width;
+		return texture.width;
 	}
 
 	@:noCompletion
 	override function get_height() {
-		return animation.height;
+		return texture.height;
 	}
 
 	@:noCompletion

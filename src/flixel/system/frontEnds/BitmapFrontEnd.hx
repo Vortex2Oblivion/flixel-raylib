@@ -10,11 +10,6 @@ class BitmapFrontEnd {
 	}
 
 	public function reset() {
-		if (cache == null) {
-			cache = new Map<String, Texture>();
-			return;
-		}
-
 		for (key in cache.keys()) {
 			var obj = cache.get(key);
 			cache.remove(key);

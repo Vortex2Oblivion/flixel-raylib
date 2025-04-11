@@ -1,6 +1,5 @@
 package flixel.math;
 
-import haxe.ds.Vector;
 import raylib.Vector2;
 
 using raylib.RayMath;
@@ -12,7 +11,11 @@ abstract FlxPoint(Vector2) to Vector2 from Vector2 {
 
     public var y(get, set):Float;
 
-	inline function new(x:Float = 0, y:Float = 0) {
+	inline public function new(x:Float = 0, y:Float = 0) {
+		this = Vector2.create(x, y);
+	}
+
+	inline public function set(x:Float, y:Float) {
 		this = Vector2.create(x, y);
 	}
 
