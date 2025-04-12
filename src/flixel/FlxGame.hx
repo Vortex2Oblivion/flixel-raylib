@@ -1,9 +1,9 @@
 package flixel;
 
+import raylib.Raylib;
 import cpp.Lib;
 import flixel.util.FlxStringUtil;
 import flixel.system.FlxMemory;
-import raylib.Colors;
 
 class FlxGame {
 	public function new(gameWidth:Int = 0, gameHeight:Int = 0, initialState:FlxState, updateFramerate:Int = 60) {
@@ -33,7 +33,7 @@ class FlxGame {
 				}
 			}
 			drawFPS(1, 1);
-			drawText("\n"+FlxStringUtil.formatBytes(FlxMemory.getMemory()) +" / " + FlxStringUtil.formatBytes(FlxMemory.getPeakMemory()), 1, 1, 20, Colors.LIME);
+			drawText("\n"+FlxStringUtil.formatBytes(FlxMemory.getMemory()) +" / " + FlxStringUtil.formatBytes(FlxMemory.getPeakMemory()), 1, 1, 20, Raylib.LIME);
 			endDrawing();
 		}
 		closeAudioDevice();

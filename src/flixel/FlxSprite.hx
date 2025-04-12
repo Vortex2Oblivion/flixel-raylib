@@ -4,7 +4,7 @@ import flixel.graphics.frames.FlxFramesCollection;
 import flixel.math.FlxPoint;
 import raylib.TextureFilter;
 import raylib.Color;
-import raylib.Colors;
+import raylib.Raylib;
 import raylib.Rectangle;
 import raylib.Texture;
 
@@ -13,7 +13,7 @@ class FlxSprite extends FlxObject {
 
 	private var texture(default, set):Texture;
 
-	public var color:Color = Colors.WHITE;
+	public var color:Color = Raylib.WHITE;
 
 	public var alpha(default, set):Float = 1.0;
 

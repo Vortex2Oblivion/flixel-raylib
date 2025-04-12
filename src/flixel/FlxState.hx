@@ -1,14 +1,14 @@
 package flixel;
 
+import raylib.Raylib;
 import flixel.FlxBasic;
 import flixel.sound.FlxSound;
 import flixel.group.FlxContainer;
 import raylib.Color;
-import raylib.Colors;
 
 class FlxState extends FlxContainer {
 	
-	public var bgColor:Color = Colors.BLACK;
+	public var bgColor:Color = Raylib.BLACK;
 
 	public function create():Void {}
 
