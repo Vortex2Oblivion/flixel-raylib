@@ -1,7 +1,7 @@
 package flixel;
 
+import flixel.graphics.frames.FlxFramesCollection;
 import flixel.math.FlxPoint;
-import flixel.animation.FlxAnimation;
 import raylib.TextureFilter;
 import raylib.Color;
 import raylib.Colors;
@@ -27,7 +27,7 @@ class FlxSprite extends FlxObject {
 
 	public var scale:FlxPoint;
 
-	public var frames:FlxFrames;
+	public var frames:FlxFramesCollection;
 
 	public function new(x:Float = 0, y:Float = 0, ?graphic:String) {
 		super(x, y);
