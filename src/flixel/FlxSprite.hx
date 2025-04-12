@@ -27,6 +27,8 @@ class FlxSprite extends FlxObject {
 
 	public var scale:FlxPoint;
 
+	public var frames:FlxFrames;
+
 	public function new(x:Float = 0, y:Float = 0, ?graphic:String) {
 		super(x, y);
 		origin = new FlxPoint();
@@ -39,6 +41,10 @@ class FlxSprite extends FlxObject {
 		unloadTexture(texture);
 		texture = loadTexture(graphic);
 		return this;
+	}
+
+	public function loadSparrowAtlas(path:String) {
+		
 	}
 
 	public inline function isOnScreen():Bool {

@@ -1,6 +1,6 @@
 package raylib;
 
-import cpp.Star;
+import cpp.RawPointer;
 import cpp.ConstStar;
 import cpp.ConstCharStar;
 import cpp.RawPointer;
@@ -68,7 +68,7 @@ extern class Raylib {
 	public static function setWindowIcon(image:Image):Void;
 
 	@:native("SetWindowIcons")
-	public static function setWindowIcons(image:Star<Image>, count:Int):Void;
+	public static function setWindowIcons(image:RawPointer<Image>, count:Int):Void;
 
 	@:native("SetWindowTitle")
 	public static function setWindowTitle(title:String):Void;
@@ -293,10 +293,10 @@ extern class Raylib {
 	public static function getGesturePinchAngle():Float;
 
 	@:native("UpdateCamera")
-	public static function updateCamera(camera:Star<Camera>, mode:Int):Void;
+	public static function updateCamera(camera:RawPointer<Camera>, mode:Int):Void;
 
 	@:native("UpdateCameraPro")
-	public static function updateCameraPro(camera:Star<Camera>, movement:Vector3, rotation:Vector3, zoom:Float):Void;
+	public static function updateCameraPro(camera:RawPointer<Camera>, movement:Vector3, rotation:Vector3, zoom:Float):Void;
 
 	@:native("SetShapesTexture")
 	public static function setShapesTexture(texture:Texture2D, source:Rectangle):Void;
@@ -317,7 +317,7 @@ extern class Raylib {
 	public static function drawLineEx(startPos:Vector2, endPos:Vector2, thick:Float, color:Color):Void;
 
 	@:native("DrawLineStrip")
-	public static function drawLineStrip(points:Star<Vector2>, pointCount:Int, color:Color):Void;
+	public static function drawLineStrip(points:RawPointer<Vector2>, pointCount:Int, color:Color):Void;
 
 	@:native("DrawLineBezier")
 	public static function drawLineBezier(startPos:Vector2, endPos:Vector2, thick:Float, color:Color):Void;
@@ -387,10 +387,10 @@ extern class Raylib {
 	public static function drawTriangleLines(v1:Vector2, v2:Vector2, v3:Vector2, color:Color):Void;
 
 	@:native("DrawTriangleFan")
-	public static function drawTriangleFan(points:Star<Vector2>, pointCount:Int, color:Color):Void;
+	public static function drawTriangleFan(points:RawPointer<Vector2>, pointCount:Int, color:Color):Void;
 
 	@:native("DrawTriangleStrip")
-	public static function drawTriangleStrip(points:Star<Vector2>, pointCount:Int, color:Color):Void;
+	public static function drawTriangleStrip(points:RawPointer<Vector2>, pointCount:Int, color:Color):Void;
 
 	@:native("DrawPoly")
 	public static function drawPoly(center:Vector2, sides:Int, radius:Float, rotation:Float, color:Color):Void;
@@ -402,19 +402,19 @@ extern class Raylib {
 	public static function drawPolyLinesEx(center:Vector2, sides:Int, radius:Float, rotation:Float, lineThick:Float, color:Color):Void;
 
 	@:native("DrawSplineLinear")
-	public static function drawSplineLinear(points:Star<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
+	public static function drawSplineLinear(points:RawPointer<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
 
 	@:native("DrawSplineBasis")
-	public static function drawSplineBasis(points:Star<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
+	public static function drawSplineBasis(points:RawPointer<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
 
 	@:native("DrawSplineCatmullRom")
-	public static function drawSplineCatmullRom(points:Star<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
+	public static function drawSplineCatmullRom(points:RawPointer<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
 
 	@:native("DrawSplineBezierQuadratic")
-	public static function drawSplineBezierQuadratic(points:Star<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
+	public static function drawSplineBezierQuadratic(points:RawPointer<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
 
 	@:native("DrawSplineBezierCubic")
-	public static function drawSplineBezierCubic(points:Star<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
+	public static function drawSplineBezierCubic(points:RawPointer<Vector2>, pointCount:Int, thick:Float, color:Color):Void;
 
 	@:native("DrawSplineSegmentLinear")
 	public static function drawSplineSegmentLinear(p1:Vector2, p2:Vector2, thick:Float, color:Color):Void;
@@ -465,10 +465,10 @@ extern class Raylib {
 	public static function checkCollisionPointTriangle(point:Vector2, p1:Vector2, p2:Vector2, p3:Vector2):Bool;
 
 	@:native("CheckCollisionPointPoly")
-	public static function checkCollisionPointPoly(point:Vector2, points:Star<Vector2>, pointCount:Int):Bool;
+	public static function checkCollisionPointPoly(point:Vector2, points:RawPointer<Vector2>, pointCount:Int):Bool;
 
 	@:native("CheckCollisionLines")
-	public static function checkCollisionLines(startPos1:Vector2, endPos1:Vector2, startPos2:Vector2, endPos2:Vector2, collisionPoint:Star<Vector2>):Bool;
+	public static function checkCollisionLines(startPos1:Vector2, endPos1:Vector2, startPos2:Vector2, endPos2:Vector2, collisionPoint:RawPointer<Vector2>):Bool;
 
 	@:native("CheckCollisionPointLine")
 	public static function checkCollisionPointLine(point:Vector2, p1:Vector2, p2:Vector2, threshold:Int):Bool;
@@ -507,7 +507,7 @@ extern class Raylib {
 	public static function exportImage(image:Image, fileName:ConstCharStar):Bool;
 
 	@:native("ExportImageToMemory")
-	public static function exportImageToMemory(image:Image, fileName:ConstCharStar, fileSize:Star<Int>):Star<UInt8>;
+	public static function exportImageToMemory(image:Image, fileName:ConstCharStar, fileSize:RawPointer<Int>):RawPointer<UInt8>;
 
 	@:native("ExportImageAsCode")
 	public static function exportImageAsCode(image:Image, fileName:ConstCharStar):Bool;
@@ -552,82 +552,82 @@ extern class Raylib {
 	public static function imageTextEx(font:Font, text:ConstCharStar, fontSize:Float, spacing:Float, tint:Color):Image;
 
 	@:native("ImageFormat")
-	public static function imageFormat(image:Star<Image>, newFormat:Int):Void;
+	public static function imageFormat(image:RawPointer<Image>, newFormat:Int):Void;
 
 	@:native("ImageToPOT")
-	public static function imageToPOT(image:Star<Image>, fill:Color):Void;
+	public static function imageToPOT(image:RawPointer<Image>, fill:Color):Void;
 
 	@:native("ImageCrop")
-	public static function imageCrop(image:Star<Image>, crop:Rectangle):Void;
+	public static function imageCrop(image:RawPointer<Image>, crop:Rectangle):Void;
 
 	@:native("ImageAlphaCrop")
-	public static function imageAlphaCrop(image:Star<Image>, threshold:Float):Void;
+	public static function imageAlphaCrop(image:RawPointer<Image>, threshold:Float):Void;
 
 	@:native("ImageAlphaClear")
-	public static function imageAlphaClear(image:Star<Image>, color:Color, threshold:Float):Void;
+	public static function imageAlphaClear(image:RawPointer<Image>, color:Color, threshold:Float):Void;
 
 	@:native("ImageAlphaMask")
-	public static function imageAlphaMask(image:Star<Image>, alphaMask:Image):Void;
+	public static function imageAlphaMask(image:RawPointer<Image>, alphaMask:Image):Void;
 
 	@:native("ImageAlphaPremultiply")
-	public static function imageAlphaPremultiply(image:Star<Image>):Void;
+	public static function imageAlphaPremultiply(image:RawPointer<Image>):Void;
 
 	@:native("ImageBlurGaussian")
-	public static function imageBlurGaussian(image:Star<Image>, blurSize:Int):Void;
+	public static function imageBlurGaussian(image:RawPointer<Image>, blurSize:Int):Void;
 
 	@:native("ImageResize")
-	public static function imageResize(image:Star<Image>, newWidth:Int, newHeight:Int):Void;
+	public static function imageResize(image:RawPointer<Image>, newWidth:Int, newHeight:Int):Void;
 
 	@:native("ImageResizeNN")
-	public static function imageResizeNN(image:Star<Image>, newWidth:Int, newHeight:Int):Void;
+	public static function imageResizeNN(image:RawPointer<Image>, newWidth:Int, newHeight:Int):Void;
 
 	@:native("ImageResizeCanvas")
-	public static function imageResizeCanvas(image:Star<Image>, newWidth:Int, newHeight:Int, offsetX:Int, offsetY:Int):Void;
+	public static function imageResizeCanvas(image:RawPointer<Image>, newWidth:Int, newHeight:Int, offsetX:Int, offsetY:Int):Void;
 
 	@:native("ImageMipmaps")
-	public static function imageMipmaps(image:Star<Image>):Void;
+	public static function imageMipmaps(image:RawPointer<Image>):Void;
 
 	@:native("ImageDither")
-	public static function imageDither(image:Star<Image>, rBpp:Int, gBpp:Int, bGbb:Int, aGbb:Int):Void;
+	public static function imageDither(image:RawPointer<Image>, rBpp:Int, gBpp:Int, bGbb:Int, aGbb:Int):Void;
 
 	@:native("ImageFlipVertical")
-	public static function imageFlipVertical(image:Star<Image>):Void;
+	public static function imageFlipVertical(image:RawPointer<Image>):Void;
 
 	@:native("ImageFlipHorizontal")
-	public static function imageFlipHorizontal(image:Star<Image>):Void;
+	public static function imageFlipHorizontal(image:RawPointer<Image>):Void;
 
 	@:native("ImageRotate")
-	public static function imageRotate(image:Star<Image>, degrees:Int):Void;
+	public static function imageRotate(image:RawPointer<Image>, degrees:Int):Void;
 
 	@:native("ImageRotateCW")
-	public static function imageRotateCW(image:Star<Image>):Void;
+	public static function imageRotateCW(image:RawPointer<Image>):Void;
 
 	@:native("ImageRotateCCW")
-	public static function imageRotateCCW(image:Star<Image>):Void;
+	public static function imageRotateCCW(image:RawPointer<Image>):Void;
 
 	@:native("ImageColorTint")
-	public static function imageColorTint(image:Star<Image>, color:Color):Void;
+	public static function imageColorTint(image:RawPointer<Image>, color:Color):Void;
 
 	@:native("ImageColorInvert")
-	public static function imageColorInvert(image:Star<Image>):Void;
+	public static function imageColorInvert(image:RawPointer<Image>):Void;
 
 	@:native("ImageColorGrayscale")
-	public static function imageColorGrayscale(image:Star<Image>):Void;
+	public static function imageColorGrayscale(image:RawPointer<Image>):Void;
 
 	@:native("ImageColorContrast")
-	public static function imageColorContrast(image:Star<Image>, contrast:Float):Void;
+	public static function imageColorContrast(image:RawPointer<Image>, contrast:Float):Void;
 
 	@:native("ImageColorBrightness")
-	public static function imageColorBrightness(image:Star<Image>, brightnes:Float):Void;
+	public static function imageColorBrightness(image:RawPointer<Image>, brightnes:Float):Void;
 
 	@:native("ImageColorReplace")
-	public static function imageColorReplace(image:Star<Image>, color:Color, replace:Color):Void;
+	public static function imageColorReplace(image:RawPointer<Image>, color:Color, replace:Color):Void;
 
 	@:native("LoadImageColors")
 	public static function loadImageColors(image:Image):RawPointer<Color>;
 
 	@:native("LoadImagePalette")
-	public static function loadImagePalette(image:Image, maxPaletteSize:Int, maxPaletteSize:Star<Int>):RawPointer<Color>;
+	public static function loadImagePalette(image:Image, maxPaletteSize:Int, maxPaletteSize:RawPointer<Int>):RawPointer<Color>;
 
 	@:native("UnloadImageColors")
 	public static function unloadImageColors(colors:RawPointer<Color>):Void;
@@ -642,52 +642,52 @@ extern class Raylib {
 	public static function getImageColor(image:Image, x:Int, y:Int):Color;
 
 	@:native("ImageClearBackground")
-	public static function imageClearBackground(dst:Star<Image>, color:Color):Void;
+	public static function imageClearBackground(dst:RawPointer<Image>, color:Color):Void;
 
 	@:native("ImageDrawPixel")
-	public static function imageDrawPixel(dst:Star<Image>, posX:Int, posY:Int, color:Color):Void;
+	public static function imageDrawPixel(dst:RawPointer<Image>, posX:Int, posY:Int, color:Color):Void;
 
 	@:native("ImageDrawPixelV")
-	public static function imageDrawPixelV(dst:Star<Image>, position:Vector2, color:Color):Void;
+	public static function imageDrawPixelV(dst:RawPointer<Image>, position:Vector2, color:Color):Void;
 
 	@:native("ImageDrawLine")
-	public static function imageDrawLine(dst:Star<Image>, startPosX:Int, startPosY:Int, endPosX:Int, endPosY:Int, color:Color):Void;
+	public static function imageDrawLine(dst:RawPointer<Image>, startPosX:Int, startPosY:Int, endPosX:Int, endPosY:Int, color:Color):Void;
 
 	@:native("ImageDrawLineV")
-	public static function imageDrawLineV(dst:Star<Image>, startPos:Vector2, endPos:Vector2, color:Color):Void;
+	public static function imageDrawLineV(dst:RawPointer<Image>, startPos:Vector2, endPos:Vector2, color:Color):Void;
 
 	@:native("ImageDrawCircle")
-	public static function imageDrawCirle(dst:Star<Image>, centerX:Int, centerY:Int, radius:Int, color:Color):Void;
+	public static function imageDrawCirle(dst:RawPointer<Image>, centerX:Int, centerY:Int, radius:Int, color:Color):Void;
 
 	@:native("ImageDrawCircleV")
-	public static function imageDrawCirleV(dst:Star<Image>, center:Vector2, radius:Int, color:Color):Void;
+	public static function imageDrawCirleV(dst:RawPointer<Image>, center:Vector2, radius:Int, color:Color):Void;
 
 	@:native("ImageDrawCircle")
-	public static function imageDrawCirleLines(dst:Star<Image>, centerX:Int, centerY:Int, radius:Int, color:Color):Void;
+	public static function imageDrawCirleLines(dst:RawPointer<Image>, centerX:Int, centerY:Int, radius:Int, color:Color):Void;
 
 	@:native("ImageDrawCircleV")
-	public static function imageDrawCirleLinesV(dst:Star<Image>, center:Vector2, radius:Int, color:Color):Void;
+	public static function imageDrawCirleLinesV(dst:RawPointer<Image>, center:Vector2, radius:Int, color:Color):Void;
 
 	@:native("ImageDrawRectangle")
-	public static function imageDrawRectangle(dst:Star<Image>, posX:Int, posY:Int, width:Int, height:Int, color:Color):Void;
+	public static function imageDrawRectangle(dst:RawPointer<Image>, posX:Int, posY:Int, width:Int, height:Int, color:Color):Void;
 
 	@:native("ImageDrawRectangleV")
-	public static function imageDrawRectangleV(dst:Star<Image>, position:Vector2, size:Vector2, color:Color):Void;
+	public static function imageDrawRectangleV(dst:RawPointer<Image>, position:Vector2, size:Vector2, color:Color):Void;
 
 	@:native("ImageDrawRectangleRec")
-	public static function imageDrawRectangleRec(dst:Star<Image>, rec:Rectangle, color:Color):Void;
+	public static function imageDrawRectangleRec(dst:RawPointer<Image>, rec:Rectangle, color:Color):Void;
 
 	@:native("ImageDrawRectangleLines")
-	public static function imageDrawRectangleLines(dst:Star<Image>, rec:Rectangle, thick:Int, color:Color):Void;
+	public static function imageDrawRectangleLines(dst:RawPointer<Image>, rec:Rectangle, thick:Int, color:Color):Void;
 
 	@:native("ImageDraw")
-	public static function imageDraw(dst:Star<Image>, src:Image, srcRec:Rectangle, dstRec:Rectangle, tint:Color):Void;
+	public static function imageDraw(dst:RawPointer<Image>, src:Image, srcRec:Rectangle, dstRec:Rectangle, tint:Color):Void;
 
 	@:native("ImageDrawText")
-	public static function imageDrawText(dst:Star<Image>, text:ConstCharStar, posX:Int, posY:Int, fontSize:Int, color:Color):Void;
+	public static function imageDrawText(dst:RawPointer<Image>, text:ConstCharStar, posX:Int, posY:Int, fontSize:Int, color:Color):Void;
 
 	@:native("ImageDrawTextEx")
-	public static function imageDrawTextEx(dst:Star<Image>, font:Font, text:ConstCharStar, position:Vector2, fontSize:Int, spacing:Float, color:Color):Void;
+	public static function imageDrawTextEx(dst:RawPointer<Image>, font:Font, text:ConstCharStar, position:Vector2, fontSize:Int, spacing:Float, color:Color):Void;
 
 	@:native("LoadTexture")
 	public static function loadTexture(fileName:ConstCharStar):Texture2D;

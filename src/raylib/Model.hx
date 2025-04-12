@@ -1,7 +1,7 @@
 package raylib;
 
 import cpp.RawPointer;
-import cpp.Star;
+import cpp.RawPointer;
 
 @:native("Model")
 extern class Model {

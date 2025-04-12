@@ -1,11 +1,11 @@
 package raylib;
 
-import cpp.Star;
+import cpp.RawPointer;
 
 @:native("AudioStream")
 extern class AudioStream {
-	public var buffer:Star<RAudioBuffer>;
-	public var processor:Star<RAudioProcessor>;
+	public var buffer:RawPointer<RAudioBuffer>;
+	public var processor:RawPointer<RAudioProcessor>;
 
 	public var sampleRate:UInt;
 	public var sampleSize:UInt;

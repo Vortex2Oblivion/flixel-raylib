@@ -1,6 +1,6 @@
 package raylib;
 
-import cpp.Star;
+import cpp.RawPointer;
 
 @:native("Font")
 extern class Font {
@@ -10,7 +10,7 @@ extern class Font {
 
 	public var texture:Texture2D;
 
-	public var recs:Star<Rectangle>;
+	public var recs:RawPointer<Rectangle>;
 
-	public var glyphs:Star<GlyphInfo>;
+	public var glyphs:RawPointer<GlyphInfo>;
 }
